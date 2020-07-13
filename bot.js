@@ -7,14 +7,14 @@ client.commands = new Discord.Collection();
 const bot = new Discord.Client({disableEveryone: true});
 bot.commands = new Discord.Collection();
 
-fs.readdir("./commands", (err, files) => {
-    let jsfiles = files.filter(f => f.split(".").pop() === "js");
+// fs.readdir("./commands", (err, files) => {
+//     let jsfiles = files.filter(f => f.split(".").pop() === "js");
 
-    jsfiles.forEach((f, i) => {
-        let props = require(`./cmds/${f}`);
-        bot.commands.set(props.help.name, props);
-    });
-});
+//     jsfiles.forEach((f, i) => {
+//         let props = require(`./cmds/${f}`);
+//         bot.commands.set(props.help.name, props);
+//     });
+// });
 
 //при запуске
 client.on("ready", () => {
