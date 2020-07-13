@@ -39,7 +39,8 @@ client.on('message', message => {
             message.delete();
             message.reply("такое говорить запрещено!");
             //mute
-            member.addRole('676457540271210555');
+            let role = message.guild.roles.find(r => r.name === "Muted");
+            member.addRole(role);
             return;
         };
     };
@@ -85,7 +86,8 @@ client.on('message', message => {
 client.on('guildMemberAdd', member => {
     const channel = client.channels.cache.get('666330099704004649');
     channel.send(`Здравствуй, ${member}, добро пожаловать на **Dairon Chat**!`);
-    member.addRole('715946364420227132');
+    let role = message.guild.roles.find(r => r.name === "Участник");
+    member.addRole(role);
     // const stats = client.channels.cache.get('685433983907004550');
     // client.channels.get("685433983907004550").setName(`Участники:`)
   });
