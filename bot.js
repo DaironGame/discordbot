@@ -3,7 +3,7 @@ const fs = require("fs");
 const ytdl = require("ytdl-core");
 const request = require("request");
 const client = new Discord.Client();
-const prefix = '.';
+const prefix = ".";
 const DBL = require("dblapi.js");
 const dbl = new DBL(process.env.dblapi, client);
 
@@ -28,11 +28,21 @@ fs.readdir("./cmds", (err, files) => {
     });
 });
 
-// bot.on("ready", () => {
-//    bot.user.setActivity('за всеми учасниками Dairon Chat', { type: 'WATCHING' });
-//    const channel = bot.channels.cache.get('731779489943519312');
-//    channel.send(`Бот запущен!`);
-// });
+bot.on("ready", async () => {
+console.log(`Bots is ready and working in ${bot.guilds.size} servers with ${bot.users.size} users!`);
+    
+    dbl.postStats(bot.guilds.size);
+ 
+/*setInterval(() => {
+        dbl.postStats(bot.guilds.size);
+    }, 1800000); */
+    
+bot.user.setStatus('Online')
+
+bot.user.setActivity(`аоаоа`);
+    
+    bot.channels.get("731531102182834228").setName(`Servers: ${bot.guilds.size}/100`)
+
      
 bot.on("message", async message => {
     if(message.author.bot) return;
@@ -49,4 +59,6 @@ bot.on("message", async message => {
     
 });
 
-bot.login(process.env.BOT_TOKEN);
+bot.login(process.env.token);
+
+//restart
