@@ -12,10 +12,7 @@ module.exports = {
 
 		const taggedUser = message.mentions.users.first();
 
-		let dateCreate = client.user.createdAt;
-		console.log(dateCreate);
-		dateCreate = client.user.createdTimestamp;
-		console.log(dateCreate);
+		let dateCreate = client.taggedUser.user.createdAt;
 
 		let Embed = new Discord.MessageEmbed()
 	     .setColor('#0072FF')
