@@ -24,8 +24,9 @@ client.on("ready", () => {
    channel.send(`Бот запущен!`);
 });
 
+let ranColor = "#" + Math.random().toString(16).slice(2, 8);
 let inviteEmb = new Discord.MessageEmbed()
-    .setColor(RANDOM)
+    .setColor(ranColor)
     .setTitle('Уведомление')
     .setDescription('**Заходи на лучший сервер**\n**бравл старс в майнкрафте!**\n \nАйпи: `daironcraft.xyz`\nВерсия: `1.12.2 optifine`');
 
