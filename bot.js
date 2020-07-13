@@ -58,13 +58,21 @@ client.on('message', message => {
         channel.send(args.slice(1).join(" "));
     };
 
-    if (commandName === 'dc') {
-        let ranColor = "#" + Math.random().toString(16).slice(2, 8);
-        let inviteEmb = new Discord.MessageEmbed()
-         .setColor(ranColor)
-         .setTitle('Уведомление')
-         .setDescription('**Заходи на лучший сервер**\n**бравл старс в майнкрафте!**\n \nАйпи: `daironcraft.xyz`\nВерсия: `1.12.2 optifine`');
-        message.channel.send(inviteEmb)
+    if (commandName === 'dcfa') {
+        function noticement() {
+            let ranColor = "#" + Math.random().toString(16).slice(2, 8);
+            let inviteEmb = new Discord.MessageEmbed()
+             .setColor(ranColor)
+             .setTitle('Уведомление')
+             .setDescription('**Заходи на лучший сервер**\n**бравл старс в майнкрафте!**\n \nАйпи: `daironcraft.xyz`\nВерсия: `1.12.2 optifine`');
+            message.channel.send(inviteEmb)
+        };
+        let timerId = setInterval(noticement(), 5000);
+        
+    };
+
+    if (commandName === 'stopnotice') {
+        clearInterval(timerId)
     };
 
     // if (commandName === 'news') {
