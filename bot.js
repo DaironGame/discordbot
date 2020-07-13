@@ -36,9 +36,13 @@ client.on('message', message => {
     let arrayOfStrings = message.content.toLowerCase().split(' ');
     for (mat of notAllowedWords) {
         if (arrayOfStrings.includes(mat)) {
+            if (!message.author.id === '531116044794855425') {
+                return;
+            } else {
             message.delete();
             message.reply("такое говорить запрещено!");
             return;
+            };
         };
     };
 
@@ -52,7 +56,7 @@ client.on('message', message => {
     let args = messageArray.slice(1);
 
     //say
-    if (commandName === 'say') {
+    if (commandName === 'say' && message.author.id === '531116044794855425') {
         const channel = client.channels.cache.get(args[0]);
         channel.send(args.slice(1).join(" "));
     };
