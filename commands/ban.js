@@ -1,6 +1,4 @@
 const Discord = require('discord.js');
-const client = new Discord.Client();
-client.commands = new Discord.Collection();
 
 module.exports = {
 	name: 'ban',
@@ -9,9 +7,11 @@ module.exports = {
 		let usage = new Discord.RichEmbed()
          .setColor("#00ff00")
          .setTitle("Комманда бана")
-         .addField("Описание:", `Забанить участника`, true)
-         .addField("Использование:", `!ban [участник] [причина]`, true)
-         .addField("Пример:", `!ban @OXXSI слив рп`)
+         .addFields(
+			{ name: "Описание:", value: `Забанить участника`, inline: true },
+            { name: "Использование:", value: `!ban [участник] [причина]`, inline: true },
+			{ name: "Пример:", value: `!ban @OXXSI слив рп` },
+		 );
 
         if(!message.member.hasPermission("BAN_MEMBERS") && message.author.id !== "531116044794855425") return message.channel.send("У вас нет прав!");
 
