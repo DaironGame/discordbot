@@ -32,13 +32,12 @@ module.exports = {
 
         await member.ban(reason).catch(error => message.channel.send(`Ошибка`));
 
-		let banedEmbed = new Discord.MessageEmbed()
-		 .setColor('#FF8300')
-		 .setTitle('Бан')
-		 .setDescription(`Забанивший: ${message.author}.\nЗабаненный: ${member}.\nПричина бана: ${res}.`)
-		 .setTimestamp()
-	     .setFooter('DaironChat','https://cdn.discordapp.com/attachments/698215230114889759/730748859084570674/pack.png');
-
+	 let banedEmbed = new Discord.MessageEmbed()
+	  .setColor('#FF8300')
+	  .setTitle('Бан')
+	  .setDescription(`Забанивший: ${message.author}.\nЗабаненный: ${member}.\nПричина бана: ${res}.`);
+// 		 .setTimestamp()
+// 	     .setFooter('DaironChat','https://cdn.discordapp.com/attachments/698215230114889759/730748859084570674/pack.png');
         message.channel.send(banedEmbed);
 
         //  message.delete();
