@@ -40,7 +40,6 @@ client.on('message', message => {
             message.reply("такое говорить запрещено!");
             //mute
             member.addRole('676457540271210555');
-            setTimeout("member.removeRole('676457540271210555')", 5000);
             return;
         };
     };
