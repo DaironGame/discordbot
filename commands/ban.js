@@ -5,10 +5,10 @@ module.exports = {
 	description: 'Забанить участника.',
 	execute(message, args) {
 		let Embed = new Discord.MessageEmbed()
-	     .setColor('#1CFF00')
+	     .setColor('#FF8300')
 	     .setTitle('Бан')
 		 .setDescription('**Использование:**')
-		 .addField('.ban [ник] [причина]', 'Например: .ban @OXSSI слив рп', true);
+		 .addField('.ban [ник] [причина]', 'Например: `.ban @OXSSI слив рп`', true);
 
         if (!message.member.hasPermission("BAN_MEMBERS")) {
 			 message.channel.send("У вас нет прав!");
