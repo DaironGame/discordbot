@@ -25,7 +25,7 @@ client.on("ready", () => {
 });
 
 let inviteEmb = new Discord.MessageEmbed()
-    .setColor('RANDOM')
+    .setColor(RANDOM)
     .setTitle('Уведомление')
     .setDescription('**Заходи на лучший сервер**\n**бравл старс в майнкрафте!**\n \nАйпи: `daironcraft.xyz`\nВерсия: `1.12.2 optifine`');
 
