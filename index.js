@@ -6,7 +6,7 @@ const { prefix, token } = require('./config.json');
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
 
-client.login(config.token).catch((err) => {
+client.login(process.env.BOT_TOKEN).catch((err) => {
     process.exit(0);
 });
 
