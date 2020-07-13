@@ -19,7 +19,7 @@ for (const file of commandFiles) {
 //при запуске
 client.on("ready", () => {
    console.log("Бот запущен!");
-   client.user.setActivity('за всеми учасниками Dairon CHat', { type: 'WATCHING' });
+   client.user.setActivity('за всеми учасниками Dairon Chat', { type: 'WATCHING' });
    const channel = client.channels.cache.get('731779489943519312');
    channel.send(`Бот запущен!`);
 });
@@ -50,8 +50,6 @@ client.on('message', message => {
     let messageArray = message.content.split(" ");
     let commandName = messageArray[0].slice(prefix.length).toLowerCase();
     let args = messageArray.slice(1);
-
-    client.channels.cache.get('696433727357845576').send(commandName + " - " + args);
 
     //say
     if (commandName === 'say') {
