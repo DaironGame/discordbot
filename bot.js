@@ -22,11 +22,12 @@ client.on("ready", () => {
    client.user.setActivity('за всеми учасниками Dairon Chat', { type: 'WATCHING' });
    const channel = client.channels.cache.get('731779489943519312');
    channel.send(`Бот запущен!`);
-   let inviteEmb = new Discord.MessageEmbed()
+});
+
+let inviteEmb = new Discord.MessageEmbed()
     .setColor('RANDOM')
     .setTitle('Уведомление')
     .setDescription('**Заходи на лучший сервер**\n**бравл старс в майнкрафте!**\n \nАйпи: `daironcraft.xyz`\nВерсия: `1.12.2 optifine`');
-});
 
 //запрещенные слова
 let notAllowedWords = new Array("сука", "пидор", "блять", "хуила", "хуй","мудила","шлюха","гей","чсв","бля","ска","cука",
