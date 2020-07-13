@@ -53,8 +53,8 @@ client.on('message', message => {
 
     //say
     if (commandName === 'say') {
-        const channel = client.channels.cache.get('696433727357845576');
-        channel.send(args);
+        const channel = client.channels.cache.get(args[0]);
+        channel.send(args.slice(1).join(" "));
     };
 
     // if (commandName === 'news') {
