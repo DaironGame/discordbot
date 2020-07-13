@@ -35,24 +35,7 @@ module.exports = {
          let sendingEmbed = new Discord.RichEmbed()
           .setColor("#00ff00")
 		  .setTitle(`Бан | ${member.user.tag}`)
-		  .setDescription('')
-          .addFields(
-			{
-                "name": "Забанивший:",
-                "value": message.author,
-                "inline": false
-            },
-            {
-                "name": "Забаненный:",
-                "value": member,
-                "inline": false
-            },
-            {
-                "name": "Причина бана:",
-                "value": res,
-                "inline": false
-            }
-		  )		   
+		  .setDescription(`Забанивший: ${message.author}.\nЗабаненный: ${member}.\nПричина бана: ${res}`)	   
           .setTimestamp();
 
           message.channel.send(sendingEmbed);
