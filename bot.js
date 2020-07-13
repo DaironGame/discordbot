@@ -11,14 +11,19 @@ const bot = new Discord.Client({disableEveryone: true});
 bot.commands = new Discord.Collection();
 
 fs.readdir("./cmds", (err, files) => {
+    if(err) console.error(err);
 
     let jsfiles = files.filter(f => f.split(".").pop() === "js");
     if(jsfiles.length <= 0) {
+        console.log("No commands found to load!");
         return;
     }
 
+    console.log(`Loading ${jsfiles.length} commands!`);
+
     jsfiles.forEach((f, i) => {
         let props = require(`./cmds/${f}`);
+        console.log(`${i + 1}: ${f} loaded!`);
         bot.commands.set(props.help.name, props);
     });
 });
@@ -28,11 +33,6 @@ bot.on("ready", () => {
    const channel = client.channels.cache.get('731779489943519312');
    channel.send(`Бот запущен!`);
 });
-
-let notAllowedWords = new Array("сука", "пидор", "блять", "хуила", "хуй","мудила","шлюха","гей","чсв","бля","ска","cука",
-"сюк","блет","блэт","гавно", "ахуеть","ахуел","чмо","пидр","дебил","даун","заебал","сук","соси","пососи","сосать", "жопа",
-"сюк", "чмошник", "пох", "похуй", "тварь", "лох", "еблан", "хуйня","пидар", "пидарасина");
-
      
 bot.on("message", async message => {
     if(message.author.bot) return;
