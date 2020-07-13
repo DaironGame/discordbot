@@ -2,16 +2,21 @@ const fs = require('fs');
 const Discord = require('discord.js');
 const config = require('./config.json');
 const prefix = ".";
-
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
 
-const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
+const bot = new Discord.Client({disableEveryone: true});
+bot.commands = new Discord.Collection();
 
-for (const file of commandFiles) {
-	const command = require(`./commands/${file}`);
-	client.commands.set(command.name, command);
-};
+fs.readdir("./commands", (err, files) => {
+    let jsfiles = files.filter(f => f.split(".").pop() === "js");
+
+    jsfiles.forEach((f, i) => {
+        let props = require(`./cmds/${f}`);
+        console.log(`${i + 1}: ${f} loaded!`);
+        bot.commands.set(props.help.name, props);
+    });
+});
 
 //при запуске
 client.on("ready", () => {
@@ -39,17 +44,25 @@ client.on('message', message => {
     };
 
     //проверка на комманду и т.п.
-    if (!message.content.startsWith(prefix) || message.author.bot) return;
-	const args = message.content.slice(prefix.length).split(' ');
-    const commandName = args.shift().toLowerCase();
+    if(message.author.bot) return;
+    if(message.channel.type === "dm") return;  
+
+    let messageArray = message.content.split(" ");
+    let command = messageArray[0];
+    let args = messageArray.slice(1);
+
+    if(!command.startsWith(prefix)) return;
+
+    let cmd = bot.commands.get(command.slice(prefix.length));
+    if(cmd) cmd.run(bot, message, args);
 
     //restart
-    if (commandName === 'mp') {
+    if (cmd === 'mp') {
         process.exit();
     };
 
     //say
-    if (commandName === 'say') {
+    if (cmd === 'say') {
         const channel = client.channels.cache.get('696433727357845576');
         channel.send(args);
     };
@@ -62,17 +75,6 @@ client.on('message', message => {
     //      .setDescription('**.');
     //     channel.send(Embed);
     // };
-
-
-    if (!client.commands.has(commandName)) return;
-    
-    const command = client.commands.get(commandName);
-
-    try {
-	    command.execute(message, args);
-    } catch (error) {
-	    console.error(error);
-};
 
 });
 
