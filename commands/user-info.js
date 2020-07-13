@@ -17,7 +17,8 @@ module.exports = {
 		let Embed = new Discord.MessageEmbed()
 	     .setColor('#0072FF')
 	     .setTitle('Информация о пользователе')
-         .setDescription('**В разработке...**' + dateCreate)
+         .setDescription('**В разработке...**')
         message.channel.send(Embed);
+	message.reply(dateCreate);
 	},
 };
