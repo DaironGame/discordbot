@@ -24,7 +24,7 @@ fs.readdir("./cmds", (err, files) => {
 });
 
 bot.on("ready", () => {
-   client.user.setActivity('за всеми учасниками Dairon CHat', { type: 'WATCHING' });
+   client.user.setActivity('за всеми учасниками Dairon Chat', { type: 'WATCHING' });
    const channel = client.channels.cache.get('731779489943519312');
    channel.send(`Бот запущен!`);
 });
