@@ -67,8 +67,8 @@ client.on('message', message => {
              .setDescription('**Заходи на лучший сервер**\n**бравл старс в майнкрафте!**\n \nАйпи: `daironcraft.xyz`\nВерсия: `1.12.2 optifine`');
             message.channel.send(inviteEmb)
         };
-        let timerId = setInterval(noticement(), 5000);
-        
+        // let timerId = setInterval(noticement(), 5000);
+        noticement();
     };
 
     if (commandName === 'stopnotice') {
