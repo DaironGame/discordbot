@@ -38,6 +38,9 @@ client.on('message', message => {
         if (arrayOfStrings.includes(mat)) {
             message.delete();
             message.reply("такое говорить запрещено!");
+            //mute
+            member.addRole('676457540271210555');
+            setTimeout("member.removeRole('676457540271210555')", 5000);
             return;
         };
     };
