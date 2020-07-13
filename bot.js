@@ -32,6 +32,8 @@ client.on('message', message => {
     if (!message.content.startsWith(prefix) || message.author.bot) return;
 	const args = message.content.slice(prefix.length).split(' ');
     const commandName = args.shift().toLowerCase();
+	
+    if (!client.commands.has(commandName)) return;
 
     //restart
     if (commandName === 'mp') {
@@ -52,9 +54,6 @@ client.on('message', message => {
     //      .setDescription('**.');
     //     channel.send(Embed);
     // };
-
-
-    if (!client.commands.has(commandName)) return;
 
 });
 
