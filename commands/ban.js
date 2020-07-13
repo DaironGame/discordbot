@@ -32,7 +32,7 @@ module.exports = {
 
         await member.ban(reason).catch(error => message.channel.send(`Ошибка`));
 
-         let sendingEmbed = new Discord.RichEmbed()
+         let sendingEmbed = new Discord.MessageEmbed()
           .setColor("#00ff00")
           .setTitle(`Бан | ${member.user.tag}`)
 	  .setDescription(`Забанивший: ${message.author}.\nЗабаненный: ${member}.\nПричина бана: ${res}`)	   
