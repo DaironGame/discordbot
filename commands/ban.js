@@ -30,20 +30,20 @@ module.exports = {
             res = reason
         };
 
-         await member.ban(reason).catch(error => message.channel.send(`Ошибка`));
+        //  await member.ban(reason).catch(error => message.channel.send(`Ошибка`));
 
-         let bean = new Discord.RichEmbed()
-          .setColor("#00ff00")
-		  .setTitle(`Бан | ${member.user.tag}`)
-		  .setDescription('')
-          .addField("Забанен", member, true)
-          .addField("Забанивший", message.author, true)
-          .addField("Причина", res)
-          .setTimestamp();
+        //  let bean = new Discord.RichEmbed()
+        //   .setColor("#00ff00")
+		//   .setTitle(`Бан | ${member.user.tag}`)
+		//   .setDescription('')
+        //   .addField("Забанен", member, true)
+        //   .addField("Забанивший", message.author, true)
+        //   .addField("Причина", res)
+        //   .setTimestamp();
 
-         message.channel.send(bean);
+        //  message.channel.send(bean);
 
-         message.delete();
+        //  message.delete();
 
 	},
 };
