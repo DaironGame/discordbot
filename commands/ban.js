@@ -36,7 +36,8 @@ module.exports = {
           .setColor("#00ff00")
 		  .setTitle(`Бан | ${member.user.tag}`)
 		  .setDescription(`Забанивший: ${message.author}.\nЗабаненный: ${member}.\nПричина бана: ${res}`)	   
-          .setTimestamp();
+          .setTimestamp()
+	  .setFooter('DaironChat','https://cdn.discordapp.com/attachments/698215230114889759/730748859084570674/pack.png');
 
           message.channel.send(sendingEmbed);
 
