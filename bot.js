@@ -28,11 +28,11 @@ fs.readdir("./cmds", (err, files) => {
     });
 });
 
-bot.on("ready", () => {
-   bot.user.setActivity('за всеми учасниками Dairon Chat', { type: 'WATCHING' });
-   const channel = bot.channels.cache.get('731779489943519312');
-   channel.send(`Бот запущен!`);
-});
+// bot.on("ready", () => {
+//    bot.user.setActivity('за всеми учасниками Dairon Chat', { type: 'WATCHING' });
+//    const channel = bot.channels.cache.get('731779489943519312');
+//    channel.send(`Бот запущен!`);
+// });
      
 bot.on("message", async message => {
     if(message.author.bot) return;
