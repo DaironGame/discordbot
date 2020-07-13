@@ -1,47 +1,34 @@
-const fs = require('fs');
-const Discord = require('discord.js');
-const prefix = ".";
+const Discord = require("discord.js");
+const fs = require("fs");
+const ytdl = require("ytdl-core");
+const request = require("request");
 const client = new Discord.Client();
-client.commands = new Discord.Collection();
+const prefix = '.';
+const DBL = require("dblapi.js");
+const dbl = new DBL(process.env.dblapi, client);
 
 const bot = new Discord.Client({disableEveryone: true});
 bot.commands = new Discord.Collection();
 
-// fs.readdir("./commands", (err, files) => {
-//     let jsfiles = files.filter(f => f.split(".").pop() === "js");
+fs.readdir("./cmds", (err, files) => {
+    if(err) console.error(err);
 
-//     jsfiles.forEach((f, i) => {
-//         let props = require(`./cmds/${f}`);
-//         bot.commands.set(props.help.name, props);
-//     });
-// });
+    let jsfiles = files.filter(f => f.split(".").pop() === "js");
+    if(jsfiles.length <= 0) {
+        console.log("No commands found to load!");
+        return;
+    }
 
-//при запуске
-client.on("ready", () => {
-   client.user.setActivity('за всеми учасниками Dairon CHat', { type: 'WATCHING' });
-   const channel = client.channels.cache.get('731779489943519312');
-   channel.send(`Бот запущен!`);
+    console.log(`Loading ${jsfiles.length} commands!`);
+
+    jsfiles.forEach((f, i) => {
+        let props = require(`./cmds/${f}`);
+        console.log(`${i + 1}: ${f} loaded!`);
+        bot.commands.set(props.help.name, props);
+    });
 });
-
-//запрещенные слова
-let notAllowedWords = new Array("сука", "пидор", "блять", "хуила", "хуй","мудила","шлюха","гей","чсв","бля","ска","cука",
-"сюк","блет","блэт","гавно", "ахуеть","ахуел","чмо","пидр","дебил","даун","заебал","сук","соси","пососи","сосать", "жопа",
-"сюк", "чмошник", "пох", "похуй", "тварь", "лох", "еблан", "хуйня","пидар", "пидарасина");
-
-
-client.on('message', message => {
-
-     //антимат
-    let arrayOfStrings = message.content.toLowerCase().split(' ');
-    for (mat of notAllowedWords) {
-        if (arrayOfStrings.includes(mat)) {
-            message.delete();
-            message.reply("такое говорить запрещено!");
-            return;
-        };
-    };
-
-    //проверка на комманду и т.п.
+     
+bot.on("message", async message => {
     if(message.author.bot) return;
     if(message.channel.type === "dm") return;  
 
@@ -53,33 +40,7 @@ client.on('message', message => {
 
     let cmd = bot.commands.get(command.slice(prefix.length));
     if(cmd) cmd.run(bot, message, args);
-
-//     //restart
-//     if (cmd === 'mp') {
-//         process.exit();
-//     };
-
-//     //say
-//     if (cmd === 'say') {
-//         const channel = client.channels.cache.get('696433727357845576');
-//         channel.send(args);
-//     };
-
-    // if (commandName === 'news') {
-    //     const channel = client.channels.cache.get('666329910591225867');
-	// 	let Embed = new Discord.MessageEmbed()
-	//      .setColor('#fca903')
-	//      .setTitle('Новости')
-    //      .setDescription('**.');
-    //     channel.send(Embed);
-    // };
-
+    
 });
 
-//new member
-client.on('guildMemberAdd', member => {
-    const channel = client.channels.cache.get('666330099704004649');
-    channel.send(`Здравствуй, ${member}, добро пожаловать на **Dairon Chat**!`);
-  });
-  
-client.login(process.env.BOT_TOKEN);
+bot.login(process.env.BOT_TOKEN);
