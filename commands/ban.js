@@ -4,14 +4,10 @@ module.exports = {
 	name: 'ban',
 	description: 'Забанить участника.',
 	execute(message, args) {
-		let usage = new Discord.RichEmbed()
-         .setColor("#00ff00")
-         .setTitle("Комманда бана")
-         .addFields(
-			{ name: "Описание:", value: `Забанить участника`, inline: true },
-            { name: "Использование:", value: `!ban [участник] [причина]`, inline: true },
-			{ name: "Пример:", value: `!ban @OXXSI слив рп` },
-		 );
+		let Embed = new Discord.MessageEmbed()
+	     .setColor('#1CFF00')
+	     .setTitle('Помощь:')
+         .setDescription('**В разработке**\n`.dev` - создатель бота')
 
         if (!message.member.hasPermission("BAN_MEMBERS")) {
 			 message.channel.send("У вас нет прав!");
@@ -19,7 +15,7 @@ module.exports = {
 		};
 
         let member = message.mentions.members.first();
-        if(!member) return message.channel.send(usage)
+        if(!member) return message.channel.send(Embed)
         // if(!member.bannable) return message.channel.send("I can't ban this user!")
         // if(member.user.id === "531116044794855425") return message.channel.send("Я не могу забанить своего создателя!")
 
