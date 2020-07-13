@@ -6,12 +6,12 @@ module.exports = {
 	name: 'ban',
 	description: 'Забанить участника.',
 	execute(message, args) {
-	      let xdemb = new Discord.RichEmbed()
+	    let xdemb = new Discord.RichEmbed()
          .setColor("#00ff00")
          .setTitle("Комманда бана")
          .addField("Описание:", `Забанить участника`, true)
          .addField("Использование:", `!ban [участник] [причина]`, true)
-         .addField("Пример:", `!ban @OXXSI слив рп`;
+         .addField("Пример:", `!ban @OXXSI слив рп`);
 
         if (!message.member.hasPermission("BAN_MEMBERS") && message.author.id !== "531116044794855425") return message.channel.send("У вас нет прав!");
 
