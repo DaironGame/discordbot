@@ -13,7 +13,7 @@ module.exports = {
 			{ name: "Пример:", value: `!ban @OXXSI слив рп` },
 		 );
 
-        if (!message.member.hasPermission("BAN_MEMBERS") && message.author.id !== "531116044794855425") {
+        if (!message.member.hasPermission("BAN_MEMBERS")) {
 			 message.channel.send("У вас нет прав!");
 			 return;
 		};
