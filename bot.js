@@ -83,6 +83,7 @@ client.on('message', message => {
 client.on('guildMemberAdd', member => {
     const channel = client.channels.cache.get('666330099704004649');
     channel.send(`Здравствуй, ${member}, добро пожаловать на **Dairon Chat**!`);
+    member.addRole('715946364420227132');
     // const stats = client.channels.cache.get('685433983907004550');
     // client.channels.get("685433983907004550").setName(`Участники:`)
   });
