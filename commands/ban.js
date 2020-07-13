@@ -6,8 +6,9 @@ module.exports = {
 	execute(message, args) {
 		let Embed = new Discord.MessageEmbed()
 	     .setColor('#1CFF00')
-	     .setTitle('Помощь:')
-         .setDescription('**В разработке**\n`.dev` - создатель бота')
+	     .setTitle('Бан')
+		 .setDescription('**Использование:**')
+		 .addField('.ban [ник] [причина]', 'Например: .ban @OXSSI слив рп', true);
 
         if (!message.member.hasPermission("BAN_MEMBERS")) {
 			 message.channel.send("У вас нет прав!");
