@@ -20,15 +20,15 @@ module.exports = {
         // if(!member.bannable) return message.channel.send("I can't ban this user!")
         // if(member.user.id === "531116044794855425") return message.channel.send("Я не могу забанить своего создателя!")
 
-        // if(member.id === message.author.id) return message.channel.send("Вы не можете забанить самого себя")
+        if(member.id === message.author.id) return message.channel.send("Вы не можете забанить самого себя")
 
-        // let reason = args.slice(1).join(" ");
+        let reason = args.slice(1).join(" ");
 
-        // if(!reason) {
-        //     res = "Отсутствует причина";
-        // } else {
-        //     res = reason
-        // }
+        if(!reason) {
+            res = "Отсутствует причина";
+        } else {
+            res = reason
+        };
 
         // await member.ban(reason).catch(error => message.channel.send(`Изините, я не могу забанить потому что: ${error}`));
 
