@@ -25,24 +25,25 @@ module.exports = {
         let reason = args.slice(1).join(" ");
 
         if(!reason) {
-            res = "Отсутствует причина";
+            res = "не указана.";
         } else {
             res = reason
         };
 
-        // await member.ban(reason).catch(error => message.channel.send(`Изините, я не могу забанить потому что: ${error}`));
+         await member.ban(reason).catch(error => message.channel.send(`Ошибка`));
 
-        // let bean = new Discord.RichEmbed()
-        //  .setColor("#00ff00")
-        //  .setTitle(`Ban | ${member.user.tag}`)
-        //  .addField("User", member, true)
-        //  .addField("Moderator", message.author, true)
-        //  .addField("Reason", res)
-        //  .setTimestamp();
+         let bean = new Discord.RichEmbed()
+          .setColor("#00ff00")
+		  .setTitle(`Бан | ${member.user.tag}`)
+		  .setDescription('')
+          .addField("Забанен", member, true)
+          .addField("Забанивший", message.author, true)
+          .addField("Причина", res)
+          .setTimestamp();
 
-        // message.channel.send(bean)
+         message.channel.send(bean);
 
-        // message.delete()
+         message.delete();
 
 	},
 };
