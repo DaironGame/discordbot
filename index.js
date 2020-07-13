@@ -1,14 +1,10 @@
 const fs = require('fs');
 const Discord = require('discord.js');
 const config = require('./config.json');
-const { prefix, token } = require('./config.json');
+const prefix = require('./config.json');
 
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
-
-client.login(config.token).catch((err) => {
-    process.exit(0);
-});
 
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
@@ -19,7 +15,6 @@ for (const file of commandFiles) {
 
 //при запуске
 client.on("ready", () => {
-   console.log("Бот запущен!");
    client.user.setActivity('за всеми учасниками Dairon CHat', { type: 'WATCHING' });
    const channel = client.channels.cache.get('731779489943519312');
    channel.send(`Бот запущен!`);
@@ -85,11 +80,6 @@ client.on('message', message => {
 client.on('guildMemberAdd', member => {
     const channel = client.channels.cache.get('666330099704004649');
     channel.send(`Здравствуй, ${member}, добро пожаловать на **Dairon Chat**!`);
-    member.setRoles(['715946364420227132'])
-        .then(console.log)
-        .catch(console.error);
-    // const stats = client.channels.cache.get('685433983907004550');
-    // client.channels.get("685433983907004550").setName(`Участники:`)
   });
   
-
+client.login(process.env.BOT_TOKEN);
