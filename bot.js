@@ -24,12 +24,6 @@ client.on("ready", () => {
    channel.send(`Бот запущен!`);
 });
 
-let ranColor = "#" + Math.random().toString(16).slice(2, 8);
-let inviteEmb = new Discord.MessageEmbed()
-    .setColor(ranColor)
-    .setTitle('Уведомление')
-    .setDescription('**Заходи на лучший сервер**\n**бравл старс в майнкрафте!**\n \nАйпи: `daironcraft.xyz`\nВерсия: `1.12.2 optifine`');
-
 //запрещенные слова
 let notAllowedWords = new Array("сука", "пидор", "блять", "хуила", "хуй","мудила","шлюха","гей","чсв","бля","ска","cука",
 "сюк","блет","блэт","гавно", "ахуеть","ахуел","чмо","пидр","дебил","даун","заебал","сук","соси","пососи","сосать", "жопа",
@@ -65,6 +59,11 @@ client.on('message', message => {
     };
 
     if (commandName === 'dc') {
+        let ranColor = "#" + Math.random().toString(16).slice(2, 8);
+        let inviteEmb = new Discord.MessageEmbed()
+         .setColor(ranColor)
+         .setTitle('Уведомление')
+         .setDescription('**Заходи на лучший сервер**\n**бравл старс в майнкрафте!**\n \nАйпи: `daironcraft.xyz`\nВерсия: `1.12.2 optifine`');
         message.channel.send(inviteEmb)
     };
 
