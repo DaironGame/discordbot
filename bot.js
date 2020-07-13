@@ -12,7 +12,6 @@ fs.readdir("./commands", (err, files) => {
 
     jsfiles.forEach((f, i) => {
         let props = require(`./cmds/${f}`);
-        console.log(`${i + 1}: ${f} loaded!`);
         bot.commands.set(props.help.name, props);
     });
 });
@@ -55,16 +54,16 @@ client.on('message', message => {
     let cmd = bot.commands.get(command.slice(prefix.length));
     if(cmd) cmd.run(bot, message, args);
 
-    //restart
-    if (cmd === 'mp') {
-        process.exit();
-    };
+//     //restart
+//     if (cmd === 'mp') {
+//         process.exit();
+//     };
 
-    //say
-    if (cmd === 'say') {
-        const channel = client.channels.cache.get('696433727357845576');
-        channel.send(args);
-    };
+//     //say
+//     if (cmd === 'say') {
+//         const channel = client.channels.cache.get('696433727357845576');
+//         channel.send(args);
+//     };
 
     // if (commandName === 'news') {
     //     const channel = client.channels.cache.get('666329910591225867');
