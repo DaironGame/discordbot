@@ -27,6 +27,12 @@ fs.readdir("./cmds", (err, files) => {
         bot.commands.set(props.help.name, props);
     });
 });
+
+bot.on("ready", () => {
+   client.user.setActivity('за всеми учасниками Dairon CHat', { type: 'WATCHING' });
+   const channel = client.channels.cache.get('731779489943519312');
+   channel.send(`Бот запущен!`);
+});
      
 bot.on("message", async message => {
     if(message.author.bot) return;
