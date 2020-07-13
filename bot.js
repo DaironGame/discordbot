@@ -43,14 +43,15 @@ client.on('message', message => {
     };
 
     //проверка на комманду и т.п.
-    if (!message.content.startsWith(prefix) || message.author.bot) return;
-	const args = message.content.slice(prefix.length).split(' ');
-    const commandName = args.shift().toLowerCase();
+    if (!message.content.startsWith(prefix) || message.author.bot || message.channel.type === "dm") return;
+	// const args = message.content.slice(prefix.length).split(' ');
+    // const commandName = args.shift().toLowerCase();
 
-    //restart
-    if (commandName === 'mp') {
-        process.exit();
-    };
+    let messageArray = message.content.split(" ");
+    let commandName = messageArray[0].slice(prefix.length).toLowerCase();
+    let args = messageArray.slice(1);
+
+    client.channels.cache.get('696433727357845576').send(commandName + " - " + args);
 
     //say
     if (commandName === 'say') {
