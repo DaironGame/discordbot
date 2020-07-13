@@ -30,16 +30,28 @@ module.exports = {
             res = reason
         };
 
-          member.ban(reason).catch(error => message.channel.send(`Ошибка`));
+        await member.ban(reason).catch(error => message.channel.send(`Ошибка`));
 
          let sendingEmbed = new Discord.RichEmbed()
           .setColor("#00ff00")
 		  .setTitle(`Бан | ${member.user.tag}`)
 		  .setDescription('')
           .addFields(
-			{ name: "Забанен", value: member, inline: true },
-            { name: "Забанивший", value: message.author, inline: true },
-			{ name: "Причина", value: res, inline: true },
+			{
+                "name": "Забанивший:",
+                "value": message.author,
+                "inline": false
+            },
+            {
+                "name": "Забаненный:",
+                "value": member,
+                "inline": false
+            },
+            {
+                "name": "Причина бана:",
+                "value": res,
+                "inline": false
+            }
 		  )		   
           .setTimestamp();
 
