@@ -46,6 +46,15 @@ client.on('message', message => {
         channel.send(args);
     };
 
+    if (commandName === 'dev' || commandName === 'developer') {
+	    let devEmbed = new Discord.MessageEmbed()
+	     .setColor('#FF7F00')
+	     .setTitle('Разработчик:')
+         .setDescription('**Dairon Game**')
+         .setThumbnail('https://cdn.discordapp.com/attachments/698215230114889759/730748859084570674/pack.png');
+        message.channel.send(devEmbed);
+    };
+	
     // if (commandName === 'news') {
     //     const channel = client.channels.cache.get('666329910591225867');
 	// 	let Embed = new Discord.MessageEmbed()
