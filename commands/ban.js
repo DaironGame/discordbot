@@ -30,7 +30,7 @@ module.exports = {
             res = reason
         };
 
-          await member.ban(reason).catch(error => message.channel.send(`Ошибка`));
+          member.ban(reason).catch(error => message.channel.send(`Ошибка`));
 
          let sendingEmbed = new Discord.RichEmbed()
           .setColor("#00ff00")
