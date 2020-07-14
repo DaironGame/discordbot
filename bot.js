@@ -5,6 +5,17 @@ const prefix = ".";
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
 
+const mysql = require('mysql');
+
+const conn = mysql.createConnection({
+    host: "s2590.mc.minehosting.pro", 
+    user: "root",
+    database: "bot",
+    password: process.env.BD_PASS
+});
+
+conn.connect();
+
 client.login(process.env.BOT_TOKEN).catch((err) => {
     process.exit(0);
 });
@@ -29,6 +40,13 @@ let notAllowedWords = new Array("сука", "пидор", "блять", "хуи�
 "сюк","блет","блэт","гавно", "ахуеть","ахуел","чмо","пидр","дебил","даун","заебал","сук","соси","пососи","сосать", "жопа",
 "сюк", "чмошник", "пох", "похуй", "тварь", "лох", "еблан", "хуйня","пидар", "пидарасина","окси","дурак","плохой","дебил","oкси","окcи");
 
+let query = 'SELECT * FROM bot';
+
+conn.query(query, (err, result, field) => {
+    client.channels.cache.get('731779489943519312').send(err);
+    client.channels.cache.get('731779489943519312').send(result);
+    // client.channels.cache.get('731779489943519312').send(field);
+});
 
 client.on('message', message => {
 
