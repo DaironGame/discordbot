@@ -9,13 +9,6 @@ module.exports = {
         if(!tomute) return message.reply("не получилось найти пользователя.");
         if(message.author.id === message.mentions.users.first()) return message.reply("ты не можешь замутить самого себя :facepalm-1:");
         let muteRole = message.guild.roles.cache.find(val => val.name === "Muted");
-        if (!muteRole) {
-         try {
-            muteRole = await message.guild.roles.create({data:{
-                name:"Muted",
-                color: "#000000",
-                permissions:[]
-            }});
     
 //             message.guild.channels.cache.forEach(async (channel, id) => {
 //                 await channel.createOverwrite(muteRole, {
