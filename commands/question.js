@@ -14,11 +14,12 @@ module.exports = {
 		  .addField('.question [вопрос]', 'Например: `.question сегодня выйдет видео у Аида?`', true);
 		 message.channel.send(qEmbed);
         } else {
-            let answer = answers[Math.floor(Math.random() * rand_1.length)];
+            let answer = answers[Math.floor(Math.random() * answers.length)];
             let sEmbed = new Discord.MessageEmbed()
             .setColor(ranColor)
             .setTitle('Шар')
-            .setDescription(`Все ответы не настоящие, просьба относится к ответам как к шутке, \nи не верить всему сказанному в данном сообщении.\n \n${args.slice(1).join(" ")}\n${answer}`);
+            .setDescription(`Все ответы не настоящие, просьба относится к ответам как к шутке, \nи не верить всему сказанному в данном сообщении.\n \n`)
+            .addField(args.slice(1).join(" "), answer, true);
            message.channel.send(sEmbed);
         };
 	
