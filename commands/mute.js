@@ -9,19 +9,7 @@ module.exports = {
         if(!tomute) return message.reply("не получилось найти пользователя.");
         if(message.author.id === message.mentions.users.first()) return message.reply("ты не можешь замутить самого себя :facepalm-1:");
         let muteRole = message.guild.roles.cache.find(val => val.name === "Muted");
-    
-            message.guild.channels.cache.forEach(async (channel, id) => {
-                await channel.createOverwrite(muteRole, {
-                    SEND_MESSAGES: false,
-                    MANAGE_MESSAGES: false,
-                    READ_MESSAGES: false,
-                    ADD_REACTIONS: false
-                });
-            });
-         } catch(e) {
-            console.log(e.stack);
-         }
-        };
+
 //     let mutetime = args[1];
 //     if(!mutetime) return message.reply("вы не указали время для мута.");
     
