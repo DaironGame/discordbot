@@ -74,7 +74,7 @@ client.on('message', message => {
              .setColor('D70000')
              .setTitle('Дополнительные правила')
              .setDescription('**Описание:** частый пинг или пинг без причины кого-либо.\n**Наказание:** мут от 1 часа до 1 дня. Возможно больше.`');
-            message.channel.get('666329853230055466').send(inviteEmb)
+            client.channels.cache.get('666329853230055466').send(inviteEmb)
     };
 
     if (!client.commands.has(commandName)) return;
