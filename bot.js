@@ -73,7 +73,7 @@ client.on('message', message => {
         let inviteEmb = new Discord.MessageEmbed()
              .setColor('D70000')
              .setTitle('Дополнительные правила')
-             .setDescription('**Описание:** частый пинг или пинг без причины кого-либо.\n**Наказание:** мут от 1 часа до 1 дня. Возможно больше.`');
+             .setDescription('**Описание:** частый пинг или пинг без причины кого-либо.\n**Наказание:** мут от 1 часа до 3 дней.');
             client.channels.cache.get('666329853230055466').send(inviteEmb)
     };
 
