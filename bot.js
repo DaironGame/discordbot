@@ -5,24 +5,6 @@ const prefix = ".";
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
 
-const mysql = require('mysql');
-
-const conn = mysql.createConnection({
-    host: "s2590.mc.minehosting.pro", 
-    user: "root",
-    database: "bot",
-    password: process.env.BD_PASS
-});
-
-conn.connect(function (err) {
-    if (err) {
-        return client.channels.cache.get('731779489943519312').send("Ошибка: " + err.message);
-    }
-    else {
-        client.channels.cache.get('731779489943519312').send("Подключение к серверу MySQL успешно установлено");
-    }
-});
-
 client.login(process.env.BOT_TOKEN).catch((err) => {
     process.exit(0);
 });
@@ -36,6 +18,7 @@ for (const file of commandFiles) {
 
 //при запуске
 client.on("ready", () => {
+   console.log("Бот запущен!");
    client.user.setActivity('за всеми учасниками Dairon Chat', { type: 'WATCHING' });
    const channel = client.channels.cache.get('731779489943519312');
    channel.send(`Бот запущен!`);
@@ -46,13 +29,6 @@ let notAllowedWords = new Array("сука", "пидор", "блять", "хуи�
 "сюк","блет","блэт","гавно", "ахуеть","ахуел","чмо","пидр","дебил","даун","заебал","сук","соси","пососи","сосать", "жопа",
 "сюк", "чмошник", "пох", "похуй", "тварь", "лох", "еблан", "хуйня","пидар", "пидарасина","окси","дурак","плохой","дебил","oкси","окcи");
 
-let query = 'SELECT * FROM bot';
-
-conn.query(query, (err, result, field) => {
-    client.channels.cache.get('731779489943519312').send(err);
-    client.channels.cache.get('731779489943519312').send(result);
-    // client.channels.cache.get('731779489943519312').send(field);
-});
 
 client.on('message', message => {
 
