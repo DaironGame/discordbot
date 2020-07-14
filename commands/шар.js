@@ -11,7 +11,9 @@ module.exports = {
 	     .setTitle('Шар')
 		 .setDescription('**Использование:**')
 		 .addField('.шар [вопрос]', 'Например: `.шар сегодня выйдет видео у Аида?`', true);
+		message.channel.send(Embed);
         };
+	
 
 	},
 };
