@@ -31,6 +31,7 @@ module.exports = {
                 "russia": ":flag_ru: Russia"
             };
             const embed = new Discord.MessageEmbed()
+                .setColor('#00ff00')
                 .setAuthor(message.guild.name, message.guild.iconURL)
                 .setThumbnail(message.guild.iconURL)
                 .setTitle('Информация о сервере')
