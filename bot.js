@@ -44,8 +44,7 @@ client.on('message', message => {
 
             setTimeout(function(){
              message.author.roles.remove(muteRole)
-             message.channel.send(`<@${message.author}> был размучен`)
-            }, 20 * 1000 * 60);
+            }, 12000);
             return;
         };
     };
