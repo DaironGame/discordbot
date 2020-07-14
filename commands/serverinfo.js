@@ -4,20 +4,20 @@ module.exports = {
 	name: 'serverinfo',
 	description: 'Инфа о сервере.',
 	execute(message, args) {
-            let inline = true
             let serverEmbed = new Discord.MessageEmbed()
             .setColor("#00ff00")
             .setThumbnail(message.guild.iconURL)
             .setAuthor(message.guild.name)
-            .addField("Имя", message.guild.name, inline)
-            .addField("Айди", message.guild.id, inline)
-            .addField("Создатель", message.guild.owner, inline)
-            .addField("Регион", message.guild.region, inline)
-            .addField("Уровень модерации", verlvl[message.guild.verificationLevel],inline)
-            .addField("Участники", `<:user:531116044794855425> ${message.guild.memberCount}`, inline)
-            .addField("Роли", message.guild.roles.size, inline)
-            .addField("Каналы", message.guild.channels.size, inline)
-            .addField("Вы присоединились", message.member.joinedAt)
+            .addFields(
+                { name: 'Название', value: message.guild.name, inline: true },
+                { name: 'Айди', value: message.guild.id, inline: true },
+                { name: 'Создатель', value: message.guild.owner, inline: true },
+                { name: 'Регион', value: message.guild.region, inline: true },
+                { name: 'Участники', value: message.guild.memberCount, inline: true },
+                { name: 'Роли', value: message.guild.roles.size, inline: true },
+                { name: 'Каналы', value: message.guild.channels.size, inline: true },
+                { name: 'Вы присоединились', value: message.member.joinedAt, inline: false },
+            )
             .setFooter(`Создан ${message.guild.createdAt}`);
         
             message.channel.send(serverEmbed);
