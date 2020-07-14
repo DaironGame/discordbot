@@ -8,7 +8,8 @@ module.exports = {
 	     .setColor('#FF8300')
 	     .setTitle('Бан')
 		 .setDescription('**Использование:**')
-		 .addField('.ban [ник] [причина]', 'Например: `.ban @OXSSI слив рп`', true);
+		 .addField('.ban [ник] [причина]', 'Например: `.ban @OXSSI слив рп`', true)
+		.setFooter('DaironChat','https://cdn.discordapp.com/attachments/698215230114889759/730748859084570674/pack.png');
 
         if (!message.member.hasPermission("BAN_MEMBERS")) {
 			 message.channel.send("У вас нет прав!");
