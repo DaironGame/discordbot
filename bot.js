@@ -22,6 +22,11 @@ client.on("ready", () => {
    client.user.setActivity('за всеми учасниками Dairon Chat', { type: 'WATCHING' });
    const channel = client.channels.cache.get('731779489943519312');
    channel.send(`Бот запущен!`);
+   channel.send(`Нажми на эмодзи, чтобы получить/убрать роль!`)
+    .then((message) => {
+      message.react("1⃣");
+      messageId = message.id;
+    });
 });
 
 //запрещенные слова
@@ -67,14 +72,6 @@ client.on('message', message => {
              .setDescription('**Заходи на лучший сервер**\n**бравл старс в майнкрафте!**\n \nАйпи: `daironcraft.xyz`\nВерсия: `1.12.2 optifine`');
             message.channel.send(inviteEmb)
         };
-    };
-
-    if (commandName === 'news') {
-        let inviteEmb = new Discord.MessageEmbed()
-             .setColor('D70000')
-             .setTitle('Дополнительные правила')
-             .setDescription('**Описание:** частый пинг или пинг без причины кого-либо.\n**Наказание:** мут от 1 часа до 3 дней.');
-            client.channels.cache.get('666329853230055466').send(inviteEmb)
     };
 
     if (!client.commands.has(commandName)) return;
