@@ -35,19 +35,14 @@ module.exports = {
                 .setAuthor(message.guild.name, message.guild.iconURL)
                 .setThumbnail(message.guild.iconURL)
                 .setTitle('Информация о сервере')
-                .setDescription(' ')
+                .setDescription(`Название: ${message.guild.name}\n \nАйди: ${message.guild.id}\n \nСоздатель: ${message.guild.owner}\n \nРегион: ${region[message.guild.region]}\n \n`)
                 .addFields(
-                    { name: 'Название', value: message.guild.name, inline: true },
-                    { name: 'Айди', value: message.guild.id, inline: true },
-                    { name: 'Создатель', value: message.guild.owner, inline: true },
-                    { name: 'Регион', value: region[message.guild.region], inline: true },
                     { name: 'Всего | Людей | Ботов', value: `${message.guild.members.size} | ${message.guild.members.filter(member => !member.user.bot).size} | ${message.guild.members.filter(member => member.user.bot).size}`, inline: true },
                     { name: 'Уровень модерации', value: verifLevels[message.guild.verificationLevel], inline: false },
                     { name: 'Каналы', value: message.guild.channels.size, inline: false },
                     { name: 'Роли', value: message.guild.roles.size, inline: false },
                     { name: 'Дата создания', value: `${message.channel.guild.createdAt.toUTCString().substr(0, 16)} (${checkDays(message.channel.guild.createdAt)})`, inline: false },
-                )
-                .setThumbnail(message.guild.iconURL);
+                );
             message.channel.send(embed);
 
 	},
