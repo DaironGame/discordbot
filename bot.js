@@ -22,11 +22,6 @@ client.on("ready", () => {
    client.user.setActivity('за всеми учасниками Dairon Chat', { type: 'WATCHING' });
    const channel = client.channels.cache.get('731779489943519312');
    channel.send(`Бот запущен!`);
-   channel.send(`Нажми на эмодзи, чтобы получить/убрать роль!`)
-    .then((message) => {
-      message.react("1⃣");
-      messageId = '732556214717775902';
-    });
 });
 
 //запрещенные слова
@@ -91,42 +86,3 @@ client.on('guildMemberAdd', member => {
     const channel = client.channels.cache.get('666330099704004649');
     channel.send(`Здравствуй, ${member}, добро пожаловать на **Dairon Chat**!`);
   });
-
-
-const events = {
-	MESSAGE_REACTION_ADD: 'messageReactionAdd',
-	MESSAGE_REACTION_REMOVE: 'messageReactionRemove',
-};
-client.on('raw', async event => {
-  if (!events.hasOwnProperty(event.t)) return;
-  const { d: data } = event;
-  const user = client.users.get(data.user_id);
-  const channel = client.channels.get(data.channel_id) || await user.createDM();
-  if (channel.messages.has(data.message_id)) return;
-  const message = await channel.fetchMessage(data.message_id);
-  const emojiKey = (data.emoji.id) ? `${data.emoji.name}:${data.emoji.id}` : data.emoji.name;
-  const reaction = message.reactions.get(emojiKey);
-  client.emit(events[event.t], reaction, user);
-});
-
-client.on('messageReactionAdd', (reaction, user) => {
-  let member = client.guilds.first().members.find(x => x.id == user.id);
-    if (reaction.message.id == messageId) {
-      if (reaction.emoji.name === "1⃣") {
-        let role = client.guilds.first().roles.find(x => x.name === "Цвет");
-        member.addRole(role)
-			.catch((e)=>{});      
-    }
-  }  
-})
-
-client.on('messageReactionRemove', (reaction, user) => {
-  let member = client.guilds.first().members.find(x => x.id == user.id);
-    if (reaction.message.id == messageId) {
-      if (reaction.emoji.name === "1⃣") {
-        let role = client.guilds.first().roles.find(x => x.name === "Цвет");
-        member.removeRole(role)
-			.catch((e)=>{});
-      }      
-  }  
-})
