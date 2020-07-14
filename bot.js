@@ -39,12 +39,12 @@ client.on('message', message => {
             message.delete();
             message.reply("такое говорить запрещено!");
             //mute
-            let muteRole = message.guild.roles.cache.find(val => val.name === "Muted");
-            message.author.roles.add(muteRole);
+            // let muteRole = message.guild.roles.cache.find(val => val.name === "Muted");
+            // message.author.roles.add(muteRole);
 
-            setTimeout(function(){
-             message.author.roles.remove(muteRole)
-            }, 12000);
+            // setTimeout(function(){
+            //  message.author.roles.remove(muteRole)
+            // }, 12000);
             return;
         };
     };
