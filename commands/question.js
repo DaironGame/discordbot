@@ -5,18 +5,18 @@ module.exports = {
 	description: 'Погадать.',
 	execute(message, args) {
         let ranColor = "#" + Math.random().toString(16).slice(2, 8);
-        if (args === '' || args == ' ' || !args) {
+        if (!args[0]) {
 		message.reply('1');
-		let Embed = new Discord.MessageEmbed()
-	         .setColor(ranColor)
-	         .setTitle('Вопрос')
+		let qEmbed = new Discord.MessageEmbed()
+	     .setColor(ranColor)
+	     .setTitle('Вопрос')
 		 .setDescription('**Использование:**')
 		 .addField('.question [вопрос]', 'Например: `.question сегодня выйдет видео у Аида?`', true);
-		message.channel.send(Embed);
+		message.channel.send(qEmbed);
         } else {
-	message.reply('2');
-    };
-    message.reply(`${message} - ${args}`)
+	    message.reply('2');
+        };
+        message.reply(`${message} - ${args}`)
 	
 
 	},
