@@ -8,7 +8,7 @@ module.exports = {
             let serverEmbed = new Discord.MessageEmbed()
             .setColor("#00ff00")
             .setThumbnail(message.guild.iconURL)
-            .setAuthor(message.guild.name)
+            .setAuthor(message.guild.name);
 //             .addField("Имя", message.guild.name, inline)
 //             .addField("Айди", message.guild.id, inline)
 //             .addField("Создатель", message.guild.owner, inline)
