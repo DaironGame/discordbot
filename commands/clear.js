@@ -13,9 +13,9 @@ module.exports = {
 	    if (isNaN(amount)) {
 		 return message.channel.send('Укажите число.');
 	    } else if (amount < 1 || amount > 100) {
-            return message.channel.send('Введите число от 1 до 100.');
+            return message.channel.send('Введите число от 1 до 99.');
         };
-        message.channel.bulkDelete(amount, true);
+        message.channel.bulkDelete(amount + 1, true);
 
 	},
 };
