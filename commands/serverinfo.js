@@ -13,16 +13,13 @@ module.exports = {
                 { name: 'Айди', value: message.guild.id, inline: true },
                 { name: 'Создатель', value: message.guild.owner, inline: true },
                 { name: 'Регион', value: message.guild.region, inline: true },
-                { name: 'Участники', value: message.guild.memberCount, inline: true },
+                { name: 'Участники', value: `<:user:531116044794855425> ${message.guild.memberCount}`, inline: true },
                 { name: 'Роли', value: message.guild.roles.size, inline: true },
-                { name: 'Каналы', value: message.guild.channels.size, inline: true },
                 { name: 'Вы присоединились', value: message.member.joinedAt, inline: false },
             )
             .setFooter(`Создан ${message.guild.createdAt}`);
         
             message.channel.send(serverEmbed);
-        
-            message.delete();
 
 	},
 };
