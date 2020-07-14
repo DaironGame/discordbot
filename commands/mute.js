@@ -5,21 +5,26 @@ module.exports = {
 	name: 'mute',
 	description: 'мут на время.',
 	execute(message, args) {
+        let howUse = new Discord.MessageEmbed()
+         .setColor('#008BD7')
+	     .setTitle('Мут')
+		 .setDescription('**Использование:**')
+		 .addField('.mute [ник] [время]', 'Например: `.mute @OXSSI 10h`', true);
         let tomute = message.mentions.users.first() || message.guild.members.cache.get(args[0]);
-        if(!tomute) return message.reply("не получилось найти пользователя.");
+        if(!tomute) return message.channel.send(howUse);
         if(message.author.id === message.mentions.users.first()) return message.reply("ты не можешь замутить самого себя :facepalm-1:");
         let muteRole = message.guild.roles.cache.find(val => val.name === "Muted");
 
     let mutetime = args[1];
-    if(!mutetime) return message.reply("вы не указали время для мута.");
+    if(!mutetime) return message.channel.send(howUse);
     
-    const embedd = new Discord.MessageEmbed()
-    .setColor(0x00FFFF)
-    .setTimestamp()
-    .addField('Замученный:', `${tomute.username}#${tomute.discriminator} (${tomute.id})`)
-    .addField('Замутивший:', `${message.author.username}#${message.author.discriminator}`)
-    .addField('Время мута', ms(ms(mutetime)))
-    .setFooter(`Dairon Chat`);
+    let embedd = new Discord.MessageEmbed()
+     .setColor('#008BD7')
+     .setTimestamp()
+     .addField('Замученный:', `${tomute}`)
+     .addField('Замутивший:', `${message.author}`)
+     .addField('Время мута', ms(ms(mutetime)))
+     .setFooter(`Dairon Chat`);
     message.channel.send(embedd);
 
     message.guild.member(tomute).roles.add(muteRole);
