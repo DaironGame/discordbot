@@ -8,7 +8,7 @@ module.exports = {
             let inviteEmb = new Discord.MessageEmbed()
              .setColor(ranColor)
              .setTitle('Помощь')
-             .setDescription('`.help` - отправляет данное сообщение\n`.ban` - забанить участника\n`.clear` - очистить сообщения\n`.dev` - информация о разработчике');
+             .setDescription('`.help` - отправляет данное сообщение\n`.ban` - забанить участника\n`.clear` - очистить сообщения\n`.question` - задать вопрос боту\n`.dev` - информация о разработчике');
             message.channel.send(inviteEmb)
 
 	},
