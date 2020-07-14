@@ -18,7 +18,7 @@ module.exports = {
             let sEmbed = new Discord.MessageEmbed()
             .setColor(ranColor)
             .setTitle('Шар')
-            .setDescription(`Все ответы не настоящие, просьба относится к ответам как к шутке, \nи не верить всему сказанному в данном сообщении.\n \n${answer}`);
+            .setDescription(`\n \n${answer}`);
            message.channel.send(sEmbed);
         };
 	
