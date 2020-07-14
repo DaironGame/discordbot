@@ -8,13 +8,14 @@ module.exports = {
         if (!args) {
 		message.reply('1');
 		let Embed = new Discord.MessageEmbed()
-	     .setColor(ranColor)
-	     .setTitle('Шар')
+	         .setColor(ranColor)
+	         .setTitle('Шар')
 		 .setDescription('**Использование:**')
 		 .addField('.шар [вопрос]', 'Например: `.шар сегодня выйдет видео у Аида?`', true);
 		message.channel.send(Embed);
-        };
+        } else {
 	message.replay('2');
+	};
 	
 
 	},
