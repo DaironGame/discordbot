@@ -18,13 +18,7 @@ module.exports = {
                 .setAuthor(message.guild.name, message.guild.iconURL)
                 .setThumbnail(message.guild.iconURL)
                 .setTitle('Информация о сервере')
-                .setDescription(`Название: ${message.guild.name}\nАйди: ${message.guild.id}\nСоздатель: ${message.guild.owner}\nРегион: ${region[message.guild.region]}`)
-                .addField('Всего | Людей | Ботов', `${message.guild.members.size} | ${message.guild.members.filter(member => !member.user.bot).size} | ${message.guild.members.filter(member => member.user.bot).size}`, true);
-                //     { name: 'Всего | Людей | Ботов', value: `${message.guild.members.size} | ${message.guild.members.filter(member => !member.user.bot).size} | ${message.guild.members.filter(member => member.user.bot).size}`, inline: true },
-                //     { name: 'Каналы', value: message.guild.channels.size, inline: true },
-                //     { name: 'Роли', value: message.guild.roles.size, inline: true },
-                //     { name: 'Дата создания', value: `${message.channel.guild.createdAt.toUTCString().substr(0, 16)} (${checkDays(message.channel.guild.createdAt)})`, inline: true },
-                // );
+                .setDescription(`Название: ${message.guild.name}\nАйди: ${message.guild.id}\nСоздатель: ${message.guild.owner}\nРегион: ${region[message.guild.region]}\nВсего | Людей | Ботов\n${message.guild.members.size} | ${message.guild.members.filter(member => !member.user.bot).size} | ${message.guild.members.filter(member => member.user.bot).size}\nКаналы: ${message.guild.channels.size}\nРоли: ${message.guild.roles.size}\nДата создания: ${message.channel.guild.createdAt.toUTCString().substr(0, 16)} (${checkDays(message.channel.guild.createdAt)})`);
             message.channel.send(servembed);
 
 	},
