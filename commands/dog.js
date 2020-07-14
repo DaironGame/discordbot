@@ -12,6 +12,6 @@ module.exports = {
          .setImage(body.url)
          .setTitle("Вот твоя рандомная собачка");
 
-        message.channel.send(embed)
+        message.channel.send(embed);
 	},
 };
