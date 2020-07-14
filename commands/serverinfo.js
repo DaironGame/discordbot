@@ -27,7 +27,7 @@ module.exports = {
                 let days = Math.floor(diff / 86400000);
                 return days + (days == 1 ? " day" : " days") + " ago";
             };
-            let verifLevels = ["None", "Low", "Medium", "(╯°□°）╯︵  ┻━┻", "┻━┻ミヽ(ಠ益ಠ)ノ彡┻━┻"];
+            let verifLevels = ["Нету", "Низкий", "Средний", "(╯°□°）╯︵  ┻━┻", "┻━┻ミヽ(ಠ益ಠ)ノ彡┻━┻"];
             let region = {
                 "russia": ":flag_ru: Russia"
             };
@@ -42,10 +42,10 @@ module.exports = {
                     { name: 'Создатель', value: message.guild.owner, inline: true },
                     { name: 'Регион', value: region[message.guild.region], inline: true },
                     { name: 'Всего | Людей | Ботов', value: `${message.guild.members.size} | ${message.guild.members.filter(member => !member.user.bot).size} | ${message.guild.members.filter(member => member.user.bot).size}`, inline: true },
-                    { name: 'Уровень модерации', value: verifLevels[message.guild.verificationLevel], inline: true },
-                    { name: 'Каналы', value: message.guild.channels.size, inline: true },
-                    { name: 'Роли', value: message.guild.roles.size, inline: true },
-                    { name: 'Дата создания', value: `${message.channel.guild.createdAt.toUTCString().substr(0, 16)} (${checkDays(message.channel.guild.createdAt)})`, inline: true },
+                    { name: 'Уровень модерации', value: verifLevels[message.guild.verificationLevel], inline: false },
+                    { name: 'Каналы', value: message.guild.channels.size, inline: false },
+                    { name: 'Роли', value: message.guild.roles.size, inline: false },
+                    { name: 'Дата создания', value: `${message.channel.guild.createdAt.toUTCString().substr(0, 16)} (${checkDays(message.channel.guild.createdAt)})`, inline: false },
                 )
                 .setThumbnail(message.guild.iconURL);
             message.channel.send(embed);
