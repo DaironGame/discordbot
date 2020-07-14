@@ -68,7 +68,7 @@ client.on('message', message => {
         };
     };
 
-    if (commandName === 'rEdit') {
+    if (commandName === 'redit') {
         const exampleEmbed = new Discord.MessageEmbed()
          .setTitle('Some title')
          .setDescription('Description after the edit');
