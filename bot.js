@@ -71,7 +71,7 @@ client.on('message', message => {
 
     if (commandName === 'news') {
         let inviteEmb = new Discord.MessageEmbed()
-             .setColor(ranColor)
+             .setColor('D70000')
              .setTitle('Дополнительные правила')
              .setDescription('**Описание:** частый пинг или пинг без причины кого-либо.\n**Наказание:** мут от 1 часа до 1 дня. Возможно больше.`');
             message.channel.get('666329853230055466').send(inviteEmb)
