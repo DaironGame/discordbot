@@ -5,18 +5,23 @@ module.exports = {
 	description: 'Погадать.',
 	execute(message, args) {
         let ranColor = "#" + Math.random().toString(16).slice(2, 8);
+        let answers = new Array("Сейчас не могу предсказать :eyes:", "Знаки говорят — да :ok_hand:", "Спроси позже :eyes:", "Мой ответ — нет :broken_heart:", "Мне кажется — да :ok_hand:", "Даже не думай :x:", "Можешь быть уверен в этом :thumbsup:", "Сконцентрируйся и спроси еще разок :eyes:")
         if (!args[0]) {
-		message.reply('1');
-		let qEmbed = new Discord.MessageEmbed()
-	     .setColor(ranColor)
-	     .setTitle('Вопрос')
-		 .setDescription('**Использование:**')
-		 .addField('.question [вопрос]', 'Например: `.question сегодня выйдет видео у Аида?`', true);
-		message.channel.send(qEmbed);
+		 let qEmbed = new Discord.MessageEmbed()
+	      .setColor(ranColor)
+	      .setTitle('Вопрос')
+		  .setDescription('**Использование:**')
+		  .addField('.question [вопрос]', 'Например: `.question сегодня выйдет видео у Аида?`', true);
+		 message.channel.send(qEmbed);
         } else {
-	    message.reply('2');
+            let answer = answers[Math.floor(Math.random() * rand_1.length)];
+            let sEmbed = new Discord.MessageEmbed()
+             .setColor(ranColor)
+             .setTitle('Шар')
+             .setDescription(`Все ответы не настоящие, просьба относится к ответам как к шутке, \nи не верить всему сказанному в данном сообщении.`)
+             .addField(args.slice(1).join(" "), answer, true);
+           message.channel.send(sEmbed);
         };
-        message.reply(`${message} - ${args}`)
 	
 
 	},
