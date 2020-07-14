@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 
 module.exports = {
-	name: 'шар',
+	name: 'question',
 	description: 'Погадать.',
 	execute(message, args) {
         let ranColor = "#" + Math.random().toString(16).slice(2, 8);
@@ -9,12 +9,12 @@ module.exports = {
 		message.reply('1');
 		let Embed = new Discord.MessageEmbed()
 	         .setColor(ranColor)
-	         .setTitle('Шар')
+	         .setTitle('Вопрос')
 		 .setDescription('**Использование:**')
-		 .addField('.шар [вопрос]', 'Например: `.шар сегодня выйдет видео у Аида?`', true);
+		 .addField('.question [вопрос]', 'Например: `.question сегодня выйдет видео у Аида?`', true);
 		message.channel.send(Embed);
         } else {
-	message.replay('2');
+	message.reply('2');
 	};
 	
 
