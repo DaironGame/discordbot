@@ -17,9 +17,5 @@ module.exports = {
         };
         message.channel.bulkDelete(amount, true);
 
-        message.channel.send(`Удалено ${amount} сообщений!`);
-
-        setTimeout(message.delete(), 1000);
-
 	},
 };
