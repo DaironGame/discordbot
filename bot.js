@@ -68,15 +68,6 @@ client.on('message', message => {
         };
     };
 
-    if (commandName === 'redit') {
-        const exampleEmbed = new Discord.MessageEmbed()
-         .setTitle('Some title')
-         .setDescription('Description after the edit');
-        channel.send(exampleEmbed);
-    
-        message.edit(exampleEmbed);
-    };
-
     if (!client.commands.has(commandName)) return;
     
     const command = client.commands.get(commandName);
