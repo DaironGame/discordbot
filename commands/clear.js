@@ -12,7 +12,7 @@ module.exports = {
 
 	    if (isNaN(amount)) {
 		 return message.channel.send('Укажите число.');
-	    } else if (amount < 1 || amount > 100) {
+	    } else if (amount < 1 || amount > 99) {
             return message.channel.send('Введите число от 1 до 99.');
         };
         message.channel.bulkDelete(amount + 1, true);
