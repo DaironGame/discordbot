@@ -33,6 +33,8 @@ module.exports = {
             };
             const embed = new Discord.MessageEmbed()
                 .setAuthor(message.guild.name, message.guild.iconURL)
+                .setThumbnail(message.guild.iconURL)
+                .setTitle('Информация о сервере')
                 .setDescription(' ')
                 .addFields(
                     { name: 'Название', value: message.guild.name, inline: true },
