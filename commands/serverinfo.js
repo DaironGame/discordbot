@@ -5,10 +5,9 @@ module.exports = {
 	description: 'Инфа о сервере.',
 	execute(message, args) {
             let inline = true
-            let sicon = message.guild.iconURL;
-            let serverembed = new Discord.RichEmbed()
+            let serverEmbed = new Discord.MessageEmbed()
             .setColor("#00ff00")
-            .setThumbnail(sicon)
+            .setThumbnail(message.guild.iconURL)
             .setAuthor(message.guild.name)
 //             .addField("Имя", message.guild.name, inline)
 //             .addField("Айди", message.guild.id, inline)
@@ -21,7 +20,7 @@ module.exports = {
 //             .addField("Вы присоединились", message.member.joinedAt)
 //             .setFooter(`Создан ${message.guild.createdAt}`);
         
-            message.channel.send(serverembed);
+            message.channel.send(serverEmbed);
         
             message.delete();
         }
