@@ -5,6 +5,10 @@ module.exports = {
 	name: 'mute',
 	description: 'мут на время.',
 	execute(message, args) {
+        if (!message.member.hasPermission("KICK_MEMBERS")) {
+            message.channel.send("У вас нет прав!");
+            return;
+        };
         let howUse = new Discord.MessageEmbed()
          .setColor('#008BD7')
 	     .setTitle('Мут')
