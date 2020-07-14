@@ -69,19 +69,13 @@ client.on('message', message => {
         };
     };
 
-    if (commandName === 'stopnotice') {
-        clearInterval(timerId)
+    if (commandName === 'news') {
+        let inviteEmb = new Discord.MessageEmbed()
+             .setColor(ranColor)
+             .setTitle('Дополнительные правила')
+             .setDescription('**Описание:** частый пинг или пинг без причины кого-либо.\n**Наказание:** мут от 1 часа до 1 дня. Возможно больше.`');
+            message.channel.get('666329853230055466').send(inviteEmb)
     };
-
-    // if (commandName === 'news') {
-    //     const channel = client.channels.cache.get('666329910591225867');
-	// 	let Embed = new Discord.MessageEmbed()
-	//      .setColor('#fca903')
-	//      .setTitle('Новости')
-    //      .setDescription('**.');
-    //     channel.send(Embed);
-    // };
-
 
     if (!client.commands.has(commandName)) return;
     
@@ -99,6 +93,4 @@ client.on('message', message => {
 client.on('guildMemberAdd', member => {
     const channel = client.channels.cache.get('666330099704004649');
     channel.send(`Здравствуй, ${member}, добро пожаловать на **Dairon Chat**!`);
-    // const stats = client.channels.cache.get('685433983907004550');
-    // client.channels.get("685433983907004550").setName(`Участники:`)
   });
