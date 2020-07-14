@@ -38,13 +38,6 @@ client.on('message', message => {
         if (arrayOfStrings.includes(mat)) {
             message.delete();
             message.reply("такое говорить запрещено!");
-            //mute
-            // let muteRole = message.guild.roles.cache.find(val => val.name === "Muted");
-            // message.author.roles.add(muteRole);
-
-            // setTimeout(function(){
-            //  message.author.roles.remove(muteRole)
-            // }, 12000);
             return;
         };
     };
@@ -73,6 +66,15 @@ client.on('message', message => {
              .setDescription('**Заходи на лучший сервер**\n**бравл старс в майнкрафте!**\n \nАйпи: `daironcraft.xyz`\nВерсия: `1.12.2 optifine`');
             message.channel.send(inviteEmb)
         };
+    };
+
+    if (commandName === 'rEdit') {
+        const exampleEmbed = new Discord.MessageEmbed()
+         .setTitle('Some title')
+         .setDescription('Description after the edit');
+        channel.send(exampleEmbed);
+    
+        message.edit(exampleEmbed);
     };
 
     if (!client.commands.has(commandName)) return;
