@@ -23,7 +23,6 @@ module.exports = {
             // message.channel.send(serverEmbed);
         
             message.delete();
-        }
 
 	},
 };
