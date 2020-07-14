@@ -1,8 +1,8 @@
 const Discord = require('discord.js');
 
 module.exports = {
-	name: 'help',
-	description: 'Помощь.',
+	name: 'serverinfo',
+	description: 'Инфа о сервере.',
 	execute(message, args) {
         const verlvl = {
             0: "None",
