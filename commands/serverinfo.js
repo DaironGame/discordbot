@@ -4,14 +4,6 @@ module.exports = {
 	name: 'serverinfo',
 	description: 'Инфа о сервере.',
 	execute(message, args) {
-        const verlvl = {
-            0: "None",
-            1: "Low",
-            2: "Medium",
-            3: "(╯°□°）╯︵ ┻━┻",
-            4: "(ノಠ益ಠ)ノ彡┻━┻"
-          };
-        
             let inline = true
             let sicon = message.guild.iconURL;
             let serverembed = new Discord.RichEmbed()
