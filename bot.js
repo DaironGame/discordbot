@@ -14,7 +14,14 @@ const conn = mysql.createConnection({
     password: process.env.BD_PASS
 });
 
-conn.connect();
+conn.connect(function (err) {
+    if (err) {
+        return client.channels.cache.get('731779489943519312').send("Ошибка: " + err.message);
+    }
+    else {
+        client.channels.cache.get('731779489943519312').send("Подключение к серверу MySQL успешно установлено");
+    }
+});
 
 client.login(process.env.BOT_TOKEN).catch((err) => {
     process.exit(0);
@@ -29,7 +36,6 @@ for (const file of commandFiles) {
 
 //при запуске
 client.on("ready", () => {
-   console.log("Бот запущен!");
    client.user.setActivity('за всеми учасниками Dairon Chat', { type: 'WATCHING' });
    const channel = client.channels.cache.get('731779489943519312');
    channel.send(`Бот запущен!`);
