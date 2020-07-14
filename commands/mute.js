@@ -10,24 +10,24 @@ module.exports = {
         if(message.author.id === message.mentions.users.first()) return message.reply("ты не можешь замутить самого себя :facepalm-1:");
         let muteRole = message.guild.roles.cache.find(val => val.name === "Muted");
 
-//     let mutetime = args[1];
-//     if(!mutetime) return message.reply("вы не указали время для мута.");
+    let mutetime = args[1];
+    if(!mutetime) return message.reply("вы не указали время для мута.");
     
-//     const embedd = new Discord.MessageEmbed()
-//     .setColor(0x00FFFF)
-//     .setTimestamp()
-//     .addField('Замученный:', `${tomute.username}#${tomute.discriminator} (${tomute.id})`)
-//     .addField('Замутивший:', `${message.author.username}#${message.author.discriminator}`)
-//     .addField('Время мута', ms(ms(mutetime)))
-//     .setFooter(`Dairon Chat`);
-//     message.channel.send(embedd);
+    const embedd = new Discord.MessageEmbed()
+    .setColor(0x00FFFF)
+    .setTimestamp()
+    .addField('Замученный:', `${tomute.username}#${tomute.discriminator} (${tomute.id})`)
+    .addField('Замутивший:', `${message.author.username}#${message.author.discriminator}`)
+    .addField('Время мута', ms(ms(mutetime)))
+    .setFooter(`Dairon Chat`);
+    message.channel.send(embedd);
 
-//     message.guild.member(tomute).roles.add(muteRole);
+    message.guild.member(tomute).roles.add(muteRole);
 
-//     setTimeout(function(){
-//         message.guild.member(tomute).roles.remove(muteRole)
-//         message.channel.send(`<@${tomute.id}> был размучен`)
-//     }, ms(mutetime));
+    setTimeout(function(){
+        message.guild.member(tomute).roles.remove(muteRole)
+        message.channel.send(`<@${tomute.id}> был размучен`)
+    }, ms(mutetime));
 
 	},
 };
