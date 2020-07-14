@@ -5,7 +5,7 @@ module.exports = {
 	description: 'Погадать.',
 	execute(message, args) {
         let ranColor = "#" + Math.random().toString(16).slice(2, 8);
-        if (!message) {
+        if (args === '') {
 		message.reply('1');
 		let Embed = new Discord.MessageEmbed()
 	         .setColor(ranColor)
