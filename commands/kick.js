@@ -1,8 +1,8 @@
 const Discord = require('discord.js');
 
 module.exports = {
-	name: 'help',
-	description: 'Помощь.',
+	name: 'kick',
+	description: 'kick.',
 	execute(message, args) {
         if (!message.member.hasPermission("KICK_MEMBERS")) {
             message.channel.send("У вас нет прав!");
@@ -33,7 +33,7 @@ module.exports = {
          .setColor('#8D00D7')
          .setTitle('Кик')
          .setTimestamp()
-         .addField('Кикнутый:', `${message.mentions.users.first()}`)
+         .addField('Кикнутый:', `${user}`)
          .addField('Кикнувший:', `${message.author}`)
          .addField('Причина', res, true)
          .setFooter('DaironChat','https://cdn.discordapp.com/attachments/698215230114889759/730748859084570674/pack.png');
