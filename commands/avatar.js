@@ -2,7 +2,8 @@ const Discord = require('discord.js');
 
 module.exports = {
 	name: 'avatar',
-	description: 'ava.',
+    description: 'ava.',
+    aliases: ['ava'],
 	execute(message, args) {
         if (message.mentions.users.first() == '531116044794855425' || message.mentions.users.first() == '694281589961654292') {
             message.channel.send('Аватар данного пользователя заблокирован.');
