@@ -71,10 +71,10 @@ client.on('message', message => {
     if (commandName === 'ban' || commandName === 'balance') {
         clientInformation.tokens [message.author.username] = {
             tokens: ''
-           };
+           }
            fs.writeFile ("./tokens.json", JSON.stringify ["0", null, 4], err => {
-               if (err) message.channel.send(err);
-               message.chanel.send('учпешно')
+               if (err) throw(err);
+               message.channel.send('writen')
            })
     };
 
