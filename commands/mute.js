@@ -13,7 +13,7 @@ module.exports = {
          .setColor('#008BD7')
 	     .setTitle('Мут')
 		 .setDescription('**Использование:**')
-         .addField('.mute [ник] [время]', 'Например: `.mute @OXSSI 10h`', true)
+         .addField('.mute [ник] [время] [причина]', 'Например: `.mute @OXSSI 10h флуд + пиар`', true)
          .setFooter('DaironChat','https://cdn.discordapp.com/attachments/698215230114889759/730748859084570674/pack.png');
         let tomute = message.mentions.users.first() || message.guild.members.cache.get(args[0]);
         if(!tomute) return message.channel.send(howUse);
