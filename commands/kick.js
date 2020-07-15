@@ -4,6 +4,10 @@ module.exports = {
 	name: 'help',
 	description: 'Помощь.',
 	execute(message, args) {
+        if (!message.member.hasPermission("KICK_MEMBERS")) {
+            message.channel.send("У вас нет прав!");
+            return;
+        };
         let reason = args.slice(1).join(' ');
         let howUse = new Discord.MessageEmbed()
          .setColor('#8D00D7')
