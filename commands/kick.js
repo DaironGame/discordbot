@@ -1,8 +1,8 @@
 const Discord = require('discord.js');
 
 module.exports = {
-	name: 'help',
-	description: 'Помощь.',
+	name: 'kick',
+	description: 'kickk.',
 	execute(message, args) {
         if (!message.member.hasPermission("KICK_MEMBERS")) {
             message.channel.send("У вас нет прав!");
@@ -20,7 +20,6 @@ module.exports = {
         if (user.id === message.author.id) return message.reply("я не могу позволить тебе сделать это, суицид - не выход! :facepalm-1:");
         if (user.id === client.user.id) return message.reply("ты думаешь, что я кикну самого себя?) :joy:");
         
-        if (message.mentions.users.first().id === "531116044794855425" || message.mentions.users.first().id === "694281589961654292") return message.reply("я не могу кикнуть этого пользователя.");
         if(!reason) {
             res = "не указана";
         } else {
