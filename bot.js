@@ -4,6 +4,8 @@ const prefix = ".";
 
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
+//добавление бд
+client.tokens = require ("./tokens.json");
 
 client.login(process.env.BOT_TOKEN).catch((err) => {
     process.exit(0);
@@ -16,7 +18,6 @@ for (const file of commandFiles) {
 	client.commands.set(command.name, command);
 };
 
-//при запуске
 client.on("ready", () => {
    console.log("Бот запущен!");
    client.user.setActivity('за всеми учасниками Dairon Chat', { type: 'WATCHING' });
@@ -24,7 +25,6 @@ client.on("ready", () => {
    channel.send(`Бот запущен!`);
 });
 
-//запрещенные слова
 let notAllowedWords = new Array("сука", "пидор", "блять", "хуила", "хуй","мудила","шлюха","гей","чсв","бля","ска","cука",
 "сюк","блет","блэт","гавно", "ахуеть","ахуел","чмо","пидр","дебил","даун","заебал","сук","соси","пососи","сосать", "жопа",
 "сюк", "чмошник", "пох", "похуй", "тварь", "лох", "еблан", "хуйня","пидар", "пидарасина","окси","дурак","плохой","дебил","oкси","окcи");
@@ -66,6 +66,16 @@ client.on('message', message => {
              .setDescription('**Заходи на лучший сервер**\n**бравл старс в майнкрафте!**\n \nАйпи: `daironcraft.xyz`\nВерсия: `1.12.2 optifine`');
             message.channel.send(inviteEmb)
         };
+    };
+
+    if (commandName === 'ban' || commandName === 'balance') {
+        clientInformation.tokens [message.author.username] = {
+            tokens: ''
+           };
+           fs.writeFile ("./tokens.json", JSON.stringify ["0", null, 4], err => {
+               if (err) message.channel.send(err);
+               message.chanel.send('учпешно')
+           })
     };
 
     if (!client.commands.has(commandName)) return;
