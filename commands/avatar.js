@@ -4,7 +4,10 @@ module.exports = {
 	name: 'avatar',
 	description: 'ava.',
 	execute(message, args) {
-        if (message.mentions.users.first() == '531116044794855425') return;
+        if (message.mentions.users.first() == '531116044794855425') {
+            message.channel.send('Аватар данного пользователя заблокирован.');
+            return;
+        };
         let avatar = message.mentions.users.size ? message.mentions.users.first().avatarURL({ format: 'png', dynamic: true, size: 2048 }) : message.author.avatarURL({ format: 'png', dynamic: true, size: 2048 });
         if (message.mentions.users.size > 0) {
           const embed = new Discord.MessageEmbed()
