@@ -12,7 +12,7 @@ module.exports = {
         let answers = new Array("Сейчас не могу предсказать :eyes:", "Знаки говорят — да :ok_hand:", "Спроси позже :eyes:",
         "Мой ответ — нет :broken_heart:", "Мне кажется — да :ok_hand:", "Даже не думай :x:", "Можешь быть уверен в этом :thumbsup:",
         "Сконцентрируйся и спроси еще разок :eyes:","Не могу ответить :see_no_evil:", ":scream:", "Сегодня не предсказываю :zipper_mouth:",
-        "Еще раз спросишь **бан**ан получишь :ringed_planet:", "Скорее всего... СЛИШКОМ СЛОЖНЫЙ ВОПРОС :exploding_head:",
+        "Еще раз спросишь **бан**ан получишь :banana:", "Скорее всего... СЛИШКОМ СЛОЖНЫЙ ВОПРОС :exploding_head:",
         ":man_facepalming: Тут же все очевидно!", "Эта ти? :chicken:");
         if (!args[0]) {
 		 let qEmbed = new Discord.MessageEmbed()
