@@ -34,6 +34,7 @@ client.on('message', message => {
     let arrayOfStrings = message.content.toLowerCase().split(' ');
     for (mat of notAllowedWords) {
         if (arrayOfStrings.includes(mat)) {
+	    if (message.author.id === '531116044794855425') return;
             message.delete();
             message.reply("такое говорить запрещено!");
             return;
@@ -53,26 +54,15 @@ client.on('message', message => {
         channel.send(args.slice(1).join(" "));
     };
 
-    if (commandName === 'dcfa') {
-        function noticement() {
-            let ranColor = "#" + Math.random().toString(16).slice(2, 8);
-            let inviteEmb = new Discord.MessageEmbed()
-             .setColor(ranColor)
-             .setTitle('Уведомление')
-             .setDescription('**Заходи на лучший сервер**\n**бравл старс в майнкрафте!**\n \nАйпи: `daironcraft.xyz`\nВерсия: `1.12.2 optifine`');
-            message.channel.send(inviteEmb)
-        };
-    };
-
     const command = client.commands.get(commandName)
 		|| client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
 
- 	if (!command) return;
+    if (!command) return;
 
     try {
 	    command.execute(message, args);
     } catch (error) {
-	    console.error(error);
+	    message.channel.send(error);
 };
 
 });
