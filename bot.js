@@ -4,8 +4,6 @@ const prefix = ".";
 
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
-//добавление бд
-client.tokens = require ("./tokens.json");
 
 client.login(process.env.BOT_TOKEN).catch((err) => {
     process.exit(0);
@@ -64,16 +62,6 @@ client.on('message', message => {
              .setDescription('**Заходи на лучший сервер**\n**бравл старс в майнкрафте!**\n \nАйпи: `daironcraft.xyz`\nВерсия: `1.12.2 optifine`');
             message.channel.send(inviteEmb)
         };
-    };
-
-    if (commandName === 'bal' || commandName === 'balance') {
-        clientInformation.tokens [message.author.username] = {
-            tokens: ''
-           }
-           fs.writeFile ("./tokens.json", JSON.stringify [message, null, 4], err => {
-               if (err) throw(err);
-               message.channel.send('writen')
-           })
     };
 
     if (!client.commands.has(commandName)) return;
