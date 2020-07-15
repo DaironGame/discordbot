@@ -44,8 +44,6 @@ client.on('message', message => {
 
     //проверка на комманду и т.п.
     if (!message.content.startsWith(prefix) || message.author.bot || message.channel.type === "dm") return;
-	// const args = message.content.slice(prefix.length).split(' ');
-    // const commandName = args.shift().toLowerCase();
 
     let messageArray = message.content.split(" ");
     let commandName = messageArray[0].slice(prefix.length).toLowerCase();
@@ -68,11 +66,11 @@ client.on('message', message => {
         };
     };
 
-    if (commandName === 'ban' || commandName === 'balance') {
+    if (commandName === 'bal' || commandName === 'balance') {
         clientInformation.tokens [message.author.username] = {
             tokens: ''
            }
-           fs.writeFile ("./tokens.json", JSON.stringify ["0", null, 4], err => {
+           fs.writeFile ("./tokens.json", JSON.stringify [message, null, 4], err => {
                if (err) throw(err);
                message.channel.send('writen')
            })
