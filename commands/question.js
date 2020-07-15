@@ -12,7 +12,7 @@ module.exports = {
 	      .setTitle('Вопрос')
 		  .setDescription('**Использование:**')
                   .addField('.question [вопрос]', 'Например: `.question сегодня выйдет видео у Аида?`', true)
-                  .setFooter(`DaironChat','https://cdn.discordapp.com/attachments/698215230114889759/730748859084570674/pack.png`);
+                  .setFooter('DaironChat','https://cdn.discordapp.com/attachments/698215230114889759/730748859084570674/pack.png');
 		 message.channel.send(qEmbed);
         } else {
             let answer = answers[Math.floor(Math.random() * answers.length)];
@@ -20,7 +20,7 @@ module.exports = {
             .setColor(ranColor)
             .setTitle('Шар')
             .setDescription(`\n \n${answer}`)
-            .setFooter(`DaironChat','https://cdn.discordapp.com/attachments/698215230114889759/730748859084570674/pack.png`);
+            .setFooter('DaironChat','https://cdn.discordapp.com/attachments/698215230114889759/730748859084570674/pack.png');
            message.channel.send(sEmbed);
         };
 	
