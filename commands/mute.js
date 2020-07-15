@@ -4,6 +4,7 @@ const ms = require("ms");
 module.exports = {
 	name: 'mute',
 	description: 'мут на время.',
+	aliases: ['tempmute', 'tmute'],
 	execute(message, args) {
         if (!message.member.hasPermission("KICK_MEMBERS")) {
             message.channel.send("У вас нет прав!");
