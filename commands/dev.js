@@ -5,6 +5,7 @@ client.commands = new Discord.Collection();
 module.exports = {
 	name: 'dev',
 	description: 'Инфа о разработчике.',
+	aliases: ['developer', 'botinfo', 'bot-info'],
 	execute(message, args) {
 		let devEmbed = new Discord.MessageEmbed()
 	     .setColor('#FF7F00')
