@@ -41,7 +41,8 @@ module.exports = {
      .addField('Причина', res, true)
      .setFooter('DaironChat','https://cdn.discordapp.com/attachments/698215230114889759/730748859084570674/pack.png');
     message.channel.send(embedd);
-    client.channels.cache.get('733274929713381396').send(embedd);
+    const channel = client.channels.cache.get('733274929713381396');
+    channel.send(embedd);
 
     message.guild.member(tomute).roles.add(muteRole);
 
