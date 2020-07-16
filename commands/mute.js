@@ -24,6 +24,7 @@ module.exports = {
     if(!mutetime) return message.channel.send(howUse);
 
     let reason = args.slice(2).join(" ");
+    let res;
 
         if(!reason) {
             res = "не указана";
