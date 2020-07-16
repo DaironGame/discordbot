@@ -32,7 +32,7 @@ module.exports = {
             res = reason
         };
     
-    let embedd = new Discord.MessageEmbed()
+    let embendd = new Discord.MessageEmbed()
      .setColor('#008BD7')
      .setTitle('Мут')
      .setTimestamp()
@@ -41,9 +41,9 @@ module.exports = {
      .addField('Время мута', ms(ms(mutetime)), true)
      .addField('Причина', res, true)
      .setFooter('DaironChat','https://cdn.discordapp.com/attachments/698215230114889759/730748859084570674/pack.png');
-    message.channel.send(embedd);
-    const channel = client.channels.cache.get('733274929713381396');
-    channel.send(embedd);
+    message.channel.send(embendd);
+//     const channel = client.channels.cache.get('733274929713381396');
+//     channel.send(embendd);
 
     message.guild.member(tomute).roles.add(muteRole);
 
