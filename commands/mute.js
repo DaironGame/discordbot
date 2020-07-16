@@ -42,10 +42,11 @@ module.exports = {
      .addField('Причина', res, true)
      .setFooter('DaironChat','https://cdn.discordapp.com/attachments/698215230114889759/730748859084570674/pack.png');
     message.channel.send(embendd);
-//     const channel = client.channels.cache.get('733274929713381396');
-//     channel.send(embendd);
-
+		
     message.guild.member(tomute).roles.add(muteRole);
+
+    const channeld = client.channels.cache.get('733274929713381396');
+    channeld.send(embendd);
 
     setTimeout(function(){
         message.guild.member(tomute).roles.remove(muteRole)
