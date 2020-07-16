@@ -27,8 +27,6 @@ module.exports = {
             res = reason
         };
 
-        if (!message.guild.member(user).kickable) return message.reply('я не могу кикнуть данного пользователя.');
-        
         let embedd = new Discord.MessageEmbed()
          .setColor('#8D00D7')
          .setTitle('Кик')
@@ -38,7 +36,6 @@ module.exports = {
          .addField('Причина', res, true)
          .setFooter('DaironChat','https://cdn.discordapp.com/attachments/698215230114889759/730748859084570674/pack.png');
         message.channel.send(embedd);
-        client.channels.cache.get('733274929713381396').send(embedd);
 
         message.guild.member(user).kick();
 	},
