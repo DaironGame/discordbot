@@ -1,4 +1,5 @@
 const Discord = require('discord.js');
+const client = new Discord.Client();
 const ms = require("ms");
 
 module.exports = {
@@ -41,7 +42,7 @@ module.exports = {
      .setFooter('DaironChat','https://cdn.discordapp.com/attachments/698215230114889759/730748859084570674/pack.png');
     message.channel.send(embedd);
     client.channels.cache.get('733274929713381396').send(embedd);
-    
+
     message.guild.member(tomute).roles.add(muteRole);
 
     setTimeout(function(){
