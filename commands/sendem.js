@@ -22,7 +22,7 @@ module.exports = {
                 "title": "Реклама",
     "description": "Реклама в данном дискорд сервере в канале **новости**",
     "url": "https://www.youtube.com/channel/UCGZhXbVkFCh4pQuzZTuzM2g",
-    "color": 31231,
+    "color": "FF0000",
     "footer": {
       "icon_url": "https://cdn.discordapp.com/attachments/730419733672886280/733689040733208606/pack.png",
       "text": "DaironChat"
