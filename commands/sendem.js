@@ -53,7 +53,7 @@ module.exports = {
       }
     ]
             }
-        message.channel.send({ embed: ds })
+            client.channels.cache.get('697352322250178570').send({ embed: ds })
         } else if (args[0] === 'yt') {
             let yt = {
                 "title": "Реклама",
@@ -87,7 +87,7 @@ module.exports = {
                   }
                 ]
             }
-            message.channel.send({ embed: yt })
+            client.channels.cache.get('697352322250178570').send({ embed: yt });
         } else if (args[0] === 'another') {
             let another = {
                 "title": "Товары",
@@ -121,7 +121,7 @@ module.exports = {
                    }
                  ]
             };
-            message.channel.send({ embed: another });
+            client.channels.cache.get('697352322250178570').send({ embed: another })
         };
         
 
