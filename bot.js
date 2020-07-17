@@ -21,11 +21,11 @@ client.on("ready", () => {
    client.user.setActivity('за всеми участниками Dairon Chat', { type: 'WATCHING' });
    const channel = client.channels.cache.get('731779489943519312');
    channel.send(`Бот запущен!`);
-   client.channels.cache.get("731779489943519312").send(`Нажми на эмодзи, чтобы получить/убрать роль!`)
-    .then((message) => {
-      message.react("1⃣");
-      messageId = message.id;
-    });
+//    client.channels.cache.get("731779489943519312").send(`Нажми на эмодзи, чтобы получить/убрать роль!`)
+//     .then((message) => {
+//       message.react("1⃣");
+//       messageId = message.id;
+//     });
 });
 
 let notAllowedWords = new Array("6ля");
@@ -82,31 +82,31 @@ client.on('guildMemberAdd', member => {
 
 
 //role give
-const events = {
-	MESSAGE_REACTION_ADD: 'messageReactionAdd',
-	MESSAGE_REACTION_REMOVE: 'messageReactionRemove',
-};
+// const events = {
+// 	MESSAGE_REACTION_ADD: 'messageReactionAdd',
+// 	MESSAGE_REACTION_REMOVE: 'messageReactionRemove',
+// };
 
-client.on('raw', async event => {
-  if (!events.hasOwnProperty(event.t)) return;
-  const { d: data } = event;
-  const user = client.users.cache.get(data.user_id);
-  const channel = client.channels.cache.get(data.channel_id) || await user.createDM();
-  if (channel.messages.cache.has(data.message_id)) return;
-  const message = await channel.messages.fetch(data.message_id);
-  const emojiKey = (data.emoji.id) ? `${data.emoji.name}:${data.emoji.id}` : data.emoji.name;
-  const reaction = message.reactions.cache.get(emojiKey);
-  client.emit(events[event.t], reaction, user);
-});
+// client.on('raw', async event => {
+//   if (!events.hasOwnProperty(event.t)) return;
+//   const { d: data } = event;
+//   const user = client.users.cache.get(data.user_id);
+//   const channel = client.channels.cache.get(data.channel_id) || await user.createDM();
+//   if (channel.messages.cache.has(data.message_id)) return;
+//   const message = await channel.messages.fetch(data.message_id);
+//   const emojiKey = (data.emoji.id) ? `${data.emoji.name}:${data.emoji.id}` : data.emoji.name;
+//   const reaction = message.reactions.cache.get(emojiKey);
+//   client.emit(events[event.t], reaction, user);
+// });
 
-client.on('messageReactionAdd', (reaction, user) => {
-  let member = client.guilds.cache.get("731531101721329735").members.find(x => x.id == user.id);
-      if (reaction.emoji.name === "1⃣") {
-        let role = client.guilds.cache.get("731531101721329735").roles.find(x => x.name === "Цвет");
-        member.role.add(role)
-			.catch((e)=>{});
-      }      
-})
+// client.on('messageReactionAdd', (reaction, user) => {
+//   let member = client.guilds.cache.get("731531101721329735").members.find(x => x.id == user.id);
+//       if (reaction.emoji.name === "1⃣") {
+//         let role = client.guilds.cache.get("731531101721329735").roles.find(x => x.name === "Цвет");
+//         member.role.add(role)
+// 			.catch((e)=>{});
+//       }      
+// })
 
 // client.on('messageReactionRemove', (reaction, user) => {
 //   let member = client.guilds.first().members.find(x => x.id == user.id);
