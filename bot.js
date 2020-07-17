@@ -21,7 +21,7 @@ client.on("ready", () => {
    client.user.setActivity('за всеми участниками Dairon Chat', { type: 'WATCHING' });
    const channel = client.channels.cache.get('731779489943519312');
    channel.send(`Бот запущен!`);
-   client.channels.cache.get("539101775567781913").send(`Нажми на эмодзи, чтобы получить/убрать роль!`)
+   client.channels.cache.get("731779489943519312").send(`Нажми на эмодзи, чтобы получить/убрать роль!`)
     .then((message) => {
       message.react("1⃣");
       messageId = message.id;
