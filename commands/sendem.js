@@ -55,6 +55,7 @@ module.exports = {
     ]
             }
          message.channel.send({yt});
+         message.channel.send(yt);
         } else if (args[0] === 'ds') {
             message.channel.send("ds")
         };
