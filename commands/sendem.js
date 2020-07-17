@@ -4,6 +4,7 @@ module.exports = {
 	name: 'sendem',
 	description: 'Помощь.',
 	execute(message, args) {
+        if (!message.author === '531116044794855425') return message.channel.send("У вас нет прав!");
         if (args[0] === 'ds') {
             let ds = {
                 "title": "Реклама",
