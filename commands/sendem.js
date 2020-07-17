@@ -7,7 +7,7 @@ module.exports = {
         if (args[0] === 'yt') {
             message.channel.send("yt");
             let yt = new Discord.MessageEmbed()
-             .setColor("16711680")
+             .setColor("FF0000")
              .setTitle("Реклама")
              .setURL("https://www.youtube.com/channel/UCGZhXbVkFCh4pQuzZTuzM2g")
              .setDescription("Реклама на канале **Dairon Game**")
