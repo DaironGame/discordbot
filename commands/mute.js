@@ -45,9 +45,6 @@ module.exports = {
 		
     message.guild.member(tomute).roles.add(muteRole);
 
-    const channeld = client.channels.cache.get('733274929713381396');
-    channeld.send(embendd);
-
     setTimeout(function(){
         message.guild.member(tomute).roles.remove(muteRole)
         message.channel.send(`<@${tomute.id}> был размучен`)
