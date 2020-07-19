@@ -25,11 +25,21 @@ module.exports = {
                   .setDescription(`**Ты** - выбрал **камень**\n**Dairon (бот)** - выбрал **камень**`)
                   .setFooter('DaironChat','https://cdn.discordapp.com/attachments/698215230114889759/730748859084570674/pack.png');
                   message.channel.send(youWin);
-             message.channel.send('камень');
         } else {
             message.channel.send(`Ты не угадал, ответ был ${realAnswer}.`);
-            return;
-         };
+        };
+        if (args[0] == 'ножницы' || args[0] == 'н') {
+        if (realAnswer == 'ножницы') {
+            let youWin = new Discord.MessageEmbed()
+            .setColor('#33FF00')
+            .setTitle('Камень Ножницы Бумага')
+            .setDescription('**Ты выиграл!**')
+            .setDescription(`**Ты** - выбрал **ножницы** :scissors: \n**Dairon (бот)** - выбрал **ножницы** :scissors: `)
+            .setFooter('DaironChat','https://cdn.discordapp.com/attachments/698215230114889759/730748859084570674/pack.png');
+            message.channel.send(youWin);
+        } else {
+            message.channel.send(`Ты не угадал, ответ был ${realAnswer}.`);
+        };
 
 
 
