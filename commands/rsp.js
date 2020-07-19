@@ -21,7 +21,7 @@ module.exports = {
 	      .setColor('#33FF00')
 	      .setTitle('Камень Ножницы Бумага')
 		  .setDescription('**Ты выиграл!**')
-                  .addField(`${message.author.name} - выбрал **камень**`, 'Dairon (бот) - выбрал **камень**', true)
+                  .setDescription(`**${message.author.name}** - выбрал **камень**\n**Dairon (бот)** - выбрал **камень**`)
                   .setFooter('DaironChat','https://cdn.discordapp.com/attachments/698215230114889759/730748859084570674/pack.png');
                   message.channel.send(youWin);
              message.channel.send('камень');
