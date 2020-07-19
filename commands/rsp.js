@@ -6,7 +6,7 @@ module.exports = {
         aliases: ['кнб', 'к'],
 	execute(message, args) {
         let answers = new Array("камень", "ножницы", "бумага");
-        let answer = answers[Math.floor(Math.random() * answers.length)];
+        let realAnswer = answers[Math.floor(Math.random() * answers.length)];
         if (!args[0]) {
 		 let qEmbed = new Discord.MessageEmbed()
 	      .setColor('#33FF00')
@@ -17,7 +17,7 @@ module.exports = {
 		 message.channel.send(qEmbed);
         };
         if (args[0] == 'камень' || args[0] == 'к') {
-        if (answer == 'камень') {
+        if (realAnswer == 'камень') {
             let youWin = new Discord.MessageEmbed()
 	      .setColor('#33FF00')
 	      .setTitle('Камень Ножницы Бумага')
@@ -27,9 +27,13 @@ module.exports = {
                   message.channel.send(youWin);
              message.channel.send('камень');
         } else {
-            message.channel.send(`Ты не угадал, ответ был ${answer}.`);
+            message.channel.send(`Ты не угадал, ответ был ${realAnswer}.`);
             return;
          };
+
+
+
+        
         };
 
 
