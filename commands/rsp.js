@@ -6,17 +6,8 @@ module.exports = {
         aliases: ['кнб', 'к'],
 	execute(message, args) {
         let ranColor = "#" + Math.random().toString(16).slice(2, 8);
-//         let notAllow = new Array("дайрон", "даирон", "дарон", "дирон", "дэйрон", "дэирон", "дейрон", "деирон",
-//         "дайран", "даиран", "окси", "краш", "крашнет", "dairon", "dauron", "дaйрон", "дaирон", "дaрон", "дaйрaн", "дaирaн",
-//         "дайрaн", "dаiron", "dairоn", "дайрoн", "oкси", "окcи", "oкcи");
         let answers = new Array("камень", "ножницы", "бумага");
         let answer = answers[Math.floor(Math.random() * answers.length)];
-        let youWin = new Discord.MessageEmbed()
-        .setColor(ranColor)
-        .setTitle('Ты выиграл!')
-        .setTimestamp
-        .setDescription(`**${message.author.name}** - выбрал ${yourAnswer}\n**Dairon (бот)** - выбрал ${answer}`)
-        .setFooter('DaironChat');
         if (!args[0]) {
 		 let qEmbed = new Discord.MessageEmbed()
 	      .setColor(ranColor)
@@ -28,9 +19,17 @@ module.exports = {
         } else if (answer == 'камень') {
          if (args[0] == 'камень' || args[0] == 'к') {
              let yourAnswer = 'камень';
+             let youWin = new Discord.MessageEmbed()
+             .setColor(ranColor)
+             .setTitle('Ты выиграл!')
+             .setTimestamp
+             .setDescription(`**${message.author.name}** - выбрал ${yourAnswer}\n**Dairon (бот)** - выбрал ${answer}`)
+             .setFooter('DaironChat');
              message.channel.send(youWin);
          }
-        };
 
+
+
+        };
 	},
 };
