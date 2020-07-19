@@ -16,7 +16,7 @@ module.exports = {
                   .setFooter('DaironChat','https://cdn.discordapp.com/attachments/698215230114889759/730748859084570674/pack.png');
 		 message.channel.send(qEmbed);
         };
-        if (args[0] == 'камень' || args[0] == 'к') {
+    if (args[0] == 'камень' || args[0] == 'к') {
         if (realAnswer == 'камень') {
             let youWin = new Discord.MessageEmbed()
 	      .setColor('#33FF00')
@@ -28,7 +28,8 @@ module.exports = {
         } else {
             message.channel.send(`Ты не угадал, ответ был ${realAnswer}.`);
         };
-        if (args[0] == 'ножницы' || args[0] == 'н') {
+    };
+    if (args[0] == 'ножницы' || args[0] == 'н') {
         if (realAnswer == 'ножницы') {
             let youWin = new Discord.MessageEmbed()
             .setColor('#33FF00')
@@ -40,12 +41,7 @@ module.exports = {
         } else {
             message.channel.send(`Ты не угадал, ответ был ${realAnswer}.`);
         };
-
-
-
-        
-        };
-
+    };
 
 	},
 };
