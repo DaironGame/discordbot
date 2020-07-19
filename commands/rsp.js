@@ -17,6 +17,7 @@ module.exports = {
 		 message.channel.send(qEmbed);
         };
         if (args[0] == 'камень' || args[0] == 'к') {
+        if (!answer == 'камень') return;
             let youWin = new Discord.MessageEmbed()
 	      .setColor('#33FF00')
 	      .setTitle('Камень Ножницы Бумага')
