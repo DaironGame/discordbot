@@ -17,13 +17,13 @@ module.exports = {
 		 message.channel.send(qEmbed);
         };
         if (args[0] == 'камень' || args[0] == 'к') {
-//              let youWin = new Discord.MessageEmbed()
-//              .setColor('#33FF00')
-//              .setTitle('Ты выиграл!')
-//              .setTimestamp
-//              .setDescription(`**${message.author.name}** - выбрал камень\n**Dairon (бот)** - выбрал камень`)
-//              .setFooter('DaironChat');
-//              message.channel.send(youWin);
+             let youWin = new Discord.MessageEmbed()
+             .setColor('#33FF00')
+             .setTitle('Ты выиграл!')
+             .setTimestamp
+             .setDescription(`**${message.author.name}** - выбрал камень\n**Dairon (бот)** - выбрал камень`)
+             .setFooter('DaironChat');
+             message.channel.send(youWin);
              message.channel.send('камень');
          };
 
