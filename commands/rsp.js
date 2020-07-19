@@ -27,7 +27,7 @@ module.exports = {
                   message.channel.send(youWin);
              message.channel.send('камень');
         } else {
-            message.channel.send(`Ты не угадал, ответ был **камень**.`);
+            message.channel.send(`Ты не угадал, ответ был ${answer}.`);
             return;
          };
         };
