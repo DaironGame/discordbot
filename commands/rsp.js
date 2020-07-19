@@ -17,10 +17,7 @@ module.exports = {
 		 message.channel.send(qEmbed);
         };
         if (args[0] == 'камень' || args[0] == 'к') {
-        if (!answer == 'камень') {
-            message.channel.send(`Ты не угадал, ответ был **камень**.`);
-            return;
-        } else {
+        if (answer == 'камень') {
             let youWin = new Discord.MessageEmbed()
 	      .setColor('#33FF00')
 	      .setTitle('Камень Ножницы Бумага')
@@ -29,6 +26,9 @@ module.exports = {
                   .setFooter('DaironChat','https://cdn.discordapp.com/attachments/698215230114889759/730748859084570674/pack.png');
                   message.channel.send(youWin);
              message.channel.send('камень');
+        } else {
+            message.channel.send(`Ты не угадал, ответ был **камень**.`);
+            return;
          };
         };
 
