@@ -15,8 +15,8 @@ module.exports = {
                   .addField('.кнб [камень/ножницы/бумага]', 'Например: `.кнб камень`', true)
                   .setFooter('DaironChat','https://cdn.discordapp.com/attachments/698215230114889759/730748859084570674/pack.png');
 		 message.channel.send(qEmbed);
-        } else if (answer == 'камень') {
-         if (args[0] == 'камень' || args[0] == 'к') {
+        };
+        if (args[0] == 'камень' || args[0] == 'к') {
              let youWin = new Discord.MessageEmbed()
              .setColor('#33FF00')
              .setTitle('Ты выиграл!')
